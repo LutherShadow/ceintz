@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../img/fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Resto del código CSS permanece igual */
+.right-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: sticky;
+    top: 20px;
+    right: 20px;
+}
+
+.right-container button {
+    background: linear-gradient(to right, #007BFF, #ff0000);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Resto del CSS original... */
+.right-container button:hover {
+    background: linear-gradient(to right, #0056b3, #b30000); /* Gradiente azul oscuro a rojo oscuro */
+}
+
+.content-container {
+    flex-grow: 1;
+    margin-right: 20px;
+    max-width: 70%;
+}
+
+.form-container, .table-container {
+    display: none;
+    background: linear-gradient(to right, #87CEEB, #ffb3b3); /* Gradiente azul claro a rojo claro */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+button {
+    padding: 8px 16px; /* Reducir padding del botón */
+    background: linear-gradient(to right, #007BFF, #ff0000); /* Gradiente azul a rojo */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 14px; /* Reducir tamaño de fuente */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #0056b3, #b30000); /* Gradiente azul oscuro a rojo oscuro */
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.chart-container canvas {
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #ff0000; /* Color rojo para títulos */
+}
+
+label {
+    color: #007BFF; /* Color azul para etiquetas */
+}
+
+input {
+    border: 1px solid #007BFF; /* Borde azul para campos de entrada */
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    border-color: #ff0000; /* Borde rojo al enfocar */
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .right-container {
+        position: static;
+        width: 100%;
+        text-align: center;
+    }
+
+    .right-container button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .content-container {
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .form-container, .table-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .chart-container {
+        width: 100%;
+    }
+
+    .chart-container canvas {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+
+    .right-container button {
+        font-size: 14px;
+    }
+
+    .form-container, .table-container {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
