@@ -1,0 +1,68 @@
+/* Estilo general del header */
+header {
+    display: flex;
+    justify-content: center; /* Centrar el contenedor de logos */
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: transparent; /* Fondo transparente */
+}
+
+/* Contenedor de logos */
+.logo-container {
+    display: flex;
+    justify-content: space-evenly; /* Distribuir uniformemente */
+    align-items: center;
+    gap: 1rem; /* Espaciado entre los logos */
+    flex-wrap: wrap; /* Permitir que salten de línea en pantallas pequeñas */
+    animation: fade-in 1.5s ease-out; /* Animación al cargar */
+    width: 100%;
+}
+
+/* Estilo de los logos */
+.logo-container img {
+    max-height: 100px; /* Tamaño máximo uniforme */
+    object-fit: contain; /* Ajustar sin distorsión */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.95; /* Ligera transparencia */
+    cursor: pointer;
+    border: none; /* Sin bordes */
+    background: none; /* Sin fondo */
+    margin-right: 1rem; /* Separación adicional opcional */
+}
+
+/* Ajustes específicos para ITSZ1 (eliminar fondo y bordes) */
+.logo-container img[src*="ITSZ1"] {
+    background: none; /* Asegurar fondo limpio */
+    border: none;
+}
+
+/* Efecto hover */
+.logo-container img:hover {
+    transform: scale(1.15); /* Efecto de aumento */
+    opacity: 1; /* Máxima visibilidad */
+}
+
+/* Responsividad: Mostrar solo la imagen del gobierno en pantallas pequeñas */
+@media (max-width: 768px) {
+    .logo-container img:not(:first-child) {
+        display: none; /* Ocultar excepto el primer logo */
+    }
+
+    .logo-container {
+        justify-content: center; /* Centrar logo restante */
+    }
+}
+
+/* Animación para los logos al cargar */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); /* Aparece desde arriba */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Posición normal */
+    }
+}

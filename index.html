@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEINTZ - Login</title>
+
+    <!-- Supabase -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+        const supabaseUrl = 'https://gpdexqhhxladxvwchofu.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwZGV4cWhoeGxhZHh2d2Nob2Z1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg3MjM3OTMsImV4cCI6MjA1NDI5OTc5M30.lC8ryRSfyZVPRTqVZYGdkM6jeV3n-emK_YFi1Le3atY'
+        window.supabase = supabase.createClient(supabaseUrl, supabaseKey)
+    </script>
+
+    <!-- External Scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/trefoil.js"></script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="icon" href="./img/Image.ico" type="image/x-icon">
+</head>
+<header>
+    <div class="logo-container">
+        <img src="./img/gob_mx.png" alt="Logo Gobierno">
+        <img src="./img/educacion_logo.png" alt="Logo Educación">
+        <img src="./img/1.2.1.png" alt="Logo TecNM">
+        <img src="./img/ITSZ1.png" alt="Logo ITSZ">
+    </div>
+</header>    
+
+<div class="loader" id="loader">
+    <l-trefoil
+        size="120"
+        stroke="4"
+        stroke-length="0.15"
+        bg-opacity="0.1"
+        speed="1.4"
+        color="black">
+    </l-trefoil>
+</div>
+
+<div class="container" id="container" style="display: none;">
+    <div class="forms-container">
+        <div class="signin-signup">
+            <form action="#" class="sign-in-form" id="loginForm" onsubmit="handleLogin(event)">
+                <h2 class="title">Iniciar sesión</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Nombre de usuario" id="username" required>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Contraseña" id="password" required>
+                </div>
+                <input type="submit" value="Iniciar sesión" class="btn solid">
+            </form>
+        </div>
+    </div>
+
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>¿Eres nuevo?</h3>
+                <p>Contacta al administrador para obtener tus credenciales de acceso.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Mostrar el loader y ocultar el contenedor al inicio
+    document.getElementById('loader').style.display = 'flex';
+    document.getElementById('container').style.display = 'none';
+
+    // Después de 2 segundos, ocultar el loader y mostrar el contenedor
+    setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('container').style.display = 'flex';
+    }, 2000);
+
+    async function handleLogin(event) {
+        event.preventDefault();
+        
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        try {
+            // Solo verificar administradores
+            const { data: adminData, error } = await window.supabase
+                .from('administrador')
+                .select()
+                .eq('usuario_admin', username)
+                .eq('contrasena_admin', password)
+                .single();
+
+            if (adminData) {
+                window.location.href = './CEINTZusu.html';
+                return;
+            }
+
+            alert('Usuario o contraseña incorrectos');
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error al iniciar sesión');
+        }
+    }
+</script>
+</body>
+</html> 

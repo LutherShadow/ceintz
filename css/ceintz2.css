@@ -1,0 +1,359 @@
+/* Estilos para centrar el contenido */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container-center {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+
+.circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #007BFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 123, 255, 0.1);
+    transition: transform 0.5s;
+}
+
+.center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Variables de color */
+:root {
+    --primary-color: #063883;
+    --secondary-color: #ff0000;
+    --text-color: #333;
+    --bg-color: #fff;
+    --footer-bg-color: rgb(7, 61, 36);
+    --hover-bg-color: rgba(28, 7, 185, 0.8);
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: var(--bg-color);
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-container img {
+    max-height: 100px;
+    margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+    .logo-container img:not(:first-child) {
+        display: none;
+    }
+}
+
+/* Icono de Admin */
+.mi-icono {
+    font-size: 2rem;
+    color: var(--primary-color);
+    padding: 10px;
+}
+
+/* Navbar */
+nav {
+    width: 100%;
+    background-color: var(--primary-color);
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.menu > li {
+    position: relative;
+}
+
+.menu > li > a {
+    color: var(--bg-color);
+    padding: 1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.menu > li > a:hover {
+    background-color: var(--hover-bg-color);
+}
+
+.menu > li:hover > a i.ri-arrow-down-s-line {
+    transform: rotate(180deg);
+    transition: transform var(--transition-speed);
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: var(--primary-color);
+    list-style-type: none;
+    padding: 0;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    z-index: 1000;
+}
+
+.submenu a {
+    color: var(--bg-color);
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block;
+    font-size: 0.85rem;
+}
+
+.submenu a:hover {
+    background-color: var(--hover-bg-color);
+}
+
+.menu li:hover > .submenu {
+    display: block;
+}
+
+.nav__toggle {
+    display: none;
+}
+
+/* Main content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.container-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.mandala-img {
+    border-radius: 0%;
+    box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.3);
+    width: 750px;
+    height: auto;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.texto-cuadro {
+    width: 600px;
+    padding: 1.5rem;
+    border: 1px solid var(--primary-color);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-in-out;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Ajustes en pantallas pequeñas */
+@media (max-width: 768px) {
+    .container-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .mandala-img {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+    }
+
+    .texto-cuadro {
+        margin: 0;
+        padding: 1rem;
+        width: 100%;
+    }
+}
+
+/* Footer */
+footer {
+    background-image: url('./img/footerLM.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--bg-color);
+    padding: 2em;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: var(--bg-color);
+    text-decoration: none;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+footer a:hover {
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footer-social-icons a {
+    font-size: 1.5rem;
+    color: var(--bg-color);
+}
+
+footer p, footer a {
+    color: #ffffff;
+}
+
+#dark-mode-toggle {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode {
+    --primary-color: #ff0000;
+    --secondary-color: #840707;
+    --text-color: #fff;
+    --bg-color: #333;
+}
+
+#ceintzCarousel {
+    max-width: 750px;
+    max-height: 500px;
+    margin: auto;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.texto-cuadro {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Navbar y Footer en pantallas pequeñas */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        display: none;
+    }
+
+    .nav__toggle {
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+    }
+
+    .submenu a {
+        padding-left: 2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-section {
+        width: 100%;
+        text-align: left;
+    }
+
+    footer p {
+        text-align: left;
+    }
+}

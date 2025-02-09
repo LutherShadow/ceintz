@@ -1,0 +1,70 @@
+/* Estilos para el contenedor flexible */
+.flex-container {
+    display: flex;
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+    gap: 20px; /* Espacio entre el carrusel y el texto */
+    padding: 20px;
+}
+
+/* Estilos para el contenedor del carrusel */
+.carrusel-container {
+    flex: 1; /* Ocupa el espacio necesario */
+    max-width: 50%; /* Limita el ancho del carrusel */
+}
+
+/* Estilos para el contenedor del texto */
+.texto-container {
+    flex: 1; /* Ocupa el espacio necesario */
+    max-width: 50%; /* Limita el ancho del texto */
+}
+
+/* Estilos para el carrusel */
+.carrusel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carrusel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrusel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carrusel-item img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+.carrusel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.carrusel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
