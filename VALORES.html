@@ -374,9 +374,8 @@
             <img src="./img/Logo-TecNM.png" alt="Logo TecNM" style="width: 280px;">
             <img src="./img/ITSZ1.png" alt="Logo ITSZ" style="width: 90px;">
         </div>
-
+        
     </header>
-
     <nav>
         <div class="nav__toggle" id="nav-toggle">
             <i class="ri-menu-line"></i>
@@ -406,120 +405,106 @@
             <li><a href="./FORMULARIO_CEINTZ.html"><i class="ri-mail-line"></i> CONTACTANOS</a></li>
         </ul>
     </nav>
+
     <main>
-        <style>
-            /* Estilos para el contenedor principal */
-            .main-container {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                width: 90%;
-                max-width: 1200px;
-                margin: 0 auto; /* Centrar el contenedor */
-                padding-bottom: 20px; /* Espacio adicional para evitar que tape el footer */
-            }
-    
-            /* Estilos para la ruleta */
-            .ruleta-container {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end; /* Alinea el carrusel a la derecha */
-                justify-content: center;
-                width: 40%; /* Reduje el ancho para que el carrusel esté más a la derecha */
-                margin-right: 20px; /* Mueve el carrusel más a la derecha */
-            }
-    
-            .ruleta {
-                position: relative;
-                width: 200px; /* Reduje aún más el ancho de la ruleta */
-                height: 280px; /* Reduje aún más la altura de la ruleta */
-            }
-    
-            .ruleta img {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                border-radius: 10px;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-                transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
-                transform-origin: bottom center;
-                filter: grayscale(100%) brightness(0); /* Imagen en negro por defecto */
-                object-fit: cover; /* Asegura que la imagen se adapte al contenedor */
-            }
-    
-            .ruleta img[style*="z-index: 5"] {
-                filter: none; /* Quitar el filtro cuando la imagen está enfrente */
-            }
-    
-            /* Estilos para el texto */
-            .texto-container {
-                width: 50%; /* Aumenté el ancho del texto */
-                text-align: justify;
-                line-height: 1.6;
-                margin-left: 20px; /* Mueve el texto más a la izquierda */
-            }
-    
-            .texto-container h1 {
-                font-size: 2rem;
-                margin-bottom: 1rem;
-            }
-        </style>
-    
-        <div class="main-container">
-            <!-- Contenedor del texto -->
-            <div class="texto-container">
-                <h1><b>VISIÓN</b></h1>
-                <p>Ser un centro de emprendimiento, innovación y negocios capaz de crear, promover, formalizar, consolidar
-                    e innovar la actividad empresarial de nuestra región y estado, generando oportunidades de crecimiento
-                    económico y social con un enfoque global.</p>
+        <div class="container">
+            <<style>
+                .texto-cuadro {
+                    text-align: justify;
+                    line-height: 1.6;
+                }
+            </style>
+            
+            <div class="texto-cuadro">
+                <h1><b>VALORES</b></h1>
+                <p>El CEINTZ, para definir su actuar y los valores que le rigen, deberá tomar en cuenta las consideraciones éticas que se definen en el Modelo Educativo vigente del Tecnológico Nacional de México.</p>
+                <p>En el TecNM impera la convicción de que es posible construir ambientes, espacios y formas de convivencia humana en los que confluyan, coincidan y armonicen actitudes, acciones y fines colaborativos que favorezcan la construcción del conocimiento, el desarrollo del avance científico, tecnológico y humanístico, y la acción social incluyente.</p>
             </div>
-    
-            <!-- Contenedor de la ruleta -->
-            <div class="ruleta-container">
-                <div class="ruleta">
-                    <img src="./FOTOS IA_2025/ARCC.JPG" class="imagen" style="z-index: 5;">
-                    <img src="./FOTOS IA_2025/ARCC.JPG" class="imagen" style="z-index: 4;">
-                    <img src="./FOTOS IA_2025/ARCC.JPG" class="imagen" style="z-index: 3;">
-                    <img src="./FOTOS IA_2025/ARCC.JPG" class="imagen" style="z-index: 2;">
-                    <img src="./FOTOS IA_2025/ARCC.JPG" class="imagen" style="z-index: 1;">
+            
+            <style>
+                /* Encapsulación de los estilos para la sección */
+                .circle-wrapper {
+                    display:contents;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    margin: 0;
+                }
+                
+                .circle-container {
+                    position: relative;
+                    width: 500px;
+                    height: 500px;
+                }
+        
+                .circle {
+                    position: absolute;
+                    width: 100px;
+                    height: 100px;
+                    border: 2px solid #007BFF;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: transparent; /* Eliminado el fondo */
+                    transition: transform 0.5s;
+                    margin: 0; /* Ajuste el margen para que esté alineado con la circunferencia */
+                }
+        
+                .center {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #000;
+                }
+            </style>
+        </head>
+        <body>
+            <!-- Contenedor único para encapsular los círculos -->
+            <div class="circle-wrapper">
+                <div class="circle-container">
+                    <div class="center" aria-label="CEINTZ">CEINTZ</div>
+                    <div class="circle" id="circle1" aria-label="Respeto">Respeto</div>
+                    <div class="circle" id="circle2" aria-label="Responsabilidad">Responsabilidad</div>
+                    <div class="circle" id="circle3" aria-label="Libertad">Libertad</div>
+                    <div class="circle" id="circle4" aria-label="Confidencialidad">Confidencialidad</div>
+                    <div class="circle" id="circle5" aria-label="Honestidad">Honestidad</div>
+                    <div class="circle" id="circle6" aria-label="Dignidad">Dignidad</div>
+                    <div class="circle" id="circle7" aria-label="Equidad">Equidad</div>
+                    <div class="circle" id="circle8" aria-label="Justicia">Justicia</div>
+                    <div class="circle" id="circle9" aria-label="Solidaridad">Solidaridad</div>
                 </div>
             </div>
-        </div>
-    
-        <script>
-            (function() {
-                let index = 0;
-                const anguloBase = 10; // Grados de separación entre cartas
-    
-                function girarRuleta() {
-                    const imagenes = document.querySelectorAll(".ruleta .imagen");
-                    const total = imagenes.length;
-    
-                    imagenes.forEach((img, i) => {
-                        const posicionRelativa = (i - index + total) % total; // Calcular posición relativa
-                        const angulo = (posicionRelativa - Math.floor(total / 2)) * anguloBase; // Calcular el ángulo de rotación
-                        img.style.transform = `rotate(${angulo}deg) translateY(${posicionRelativa * 10}px)`;
-                        img.style.zIndex = total - posicionRelativa;
-    
-                        // Aplicar filtro negro si no está enfrente
-                        if (posicionRelativa !== 0) {
-                            img.style.filter = "grayscale(100%) brightness(0)";
-                        } else {
-                            img.style.filter = "none"; // Quitar el filtro si está enfrente
-                        }
+        
+            <script>
+                const circles = document.querySelectorAll('.circle');
+                const radius = 180; // Ajustar el radio para mayor separación
+                const centerX = 250; // Centro en el eje X (mitad del contenedor)
+                const centerY = 250; // Centro en el eje Y (mitad del contenedor)
+        
+                let angle = 0; // Ángulo inicial
+        
+                function animateCircles() {
+                    circles.forEach((circle, index) => {
+                        const offsetAngle = index * (2 * Math.PI / circles.length); // Espaciado angular uniforme
+                        const x = centerX + Math.cos(angle + offsetAngle) * radius;
+                        const y = centerY + Math.sin(angle + offsetAngle) * radius;
+                        circle.style.transform = `translate(${x - 50}px, ${y - 50}px)`; // Ajuste para centrar el círculo
                     });
-    
-                    index = (index + 1) % total;
+                    angle += 0.005; // Velocidad más lenta para la rotación
+                    requestAnimationFrame(animateCircles); // Llama a la función de animación en el siguiente frame
                 }
-    
-                // Hacer que la ruleta gire automáticamente cada 3 segundos
-                setInterval(girarRuleta, 3000);
-    
-                // Iniciar la animación automáticamente al cargar la página
-                document.addEventListener("DOMContentLoaded", girarRuleta);
-            })();
-        </script>
+        
+                // Iniciar la animación
+                animateCircles();
+            </script>
+        </body>
+        </div>
     </main>
+
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -549,7 +534,6 @@
             <p>© 2024 Gobierno de México</p>
         </div>
     </footer>
-    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -566,6 +550,7 @@
             icon.classList.toggle('fa-moon');
         });
     </script>
+    
 
 </body>
 </html>
