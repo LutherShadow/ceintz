@@ -2,6 +2,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Supabase -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+        const supabaseUrl = 'https://gpdexqhhxladxvwchofu.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwZGV4cWhoeGxhZHh2d2Nob2Z1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg3MjM3OTMsImV4cCI6MjA1NDI5OTc5M30.lC8ryRSfyZVPRTqVZYGdkM6jeV3n-emK_YFi1Le3atY'
+        window.supabase = supabase.createClient(supabaseUrl, supabaseKey)
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingeniería en Administración</title>
@@ -585,51 +592,45 @@
     
     
     <script>
-        let isSubmitting = false; // Variable para evitar envíos múltiples
+    document.getElementById("contactForm").addEventListener("submit", async function (event) {
+        event.preventDefault(); // Evitar el envío real del formulario
 
-document.getElementById("contactForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Evitar el envío real del formulario
+        const nombre = document.getElementById('nombre').value;
+        const correo = document.getElementById('correo').value;
+        const telefono = document.getElementById('telefono').value;
+        const fecha_contacto = document.getElementById('fecha_contacto').value;
+        const horario_contacto = document.getElementById('horario_contacto').value;
+        const dudas = document.getElementById('duda').value;
+        const estatus = false; // Estatus inicial
 
-    // Si ya se está enviando, no permitir otro envío
-    if (isSubmitting) return;
+        try {
+            const { data, error } = await window.supabase
+                .from('contacto')
+                .insert([
+                    {
+                        nombre: nombre,
+                        correo: correo,
+                        telefono: telefono,
+                        fecha_contacto: fecha_contacto,
+                        horario_contacto: horario_contacto,
+                        dudas: dudas,
+                        estatus: estatus
+                    }
+                ])
+                .select(); // Devuelve los datos insertados
 
-    isSubmitting = true; // Marcar como en proceso
-    const form = this;
-    const submitButton = form.querySelector("button[type='submit']");
-    const spinner = document.getElementById("spinner");
-
-    // Deshabilitar el botón y mostrar el spinner
-    submitButton.disabled = true;
-    if (spinner) spinner.style.display = "inline-block";
-
-    const formData = new FormData(form);
-
-    fetch("procesar_formulario.php", {
-        method: "POST",
-        body: formData,
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.status === "success") {
-                alert(data.message);
-                form.reset();
-            } else {
-                alert("Error: " + data.message);
+            if (error) {
+                throw error;
             }
-        })
-        .catch((error) => {
-            alert("Hubo un error al enviar el formulario. Inténtalo nuevamente.");
-            console.error("Error:", error);
-        })
-        .finally(() => {
-            // Rehabilitar el botón y ocultar el spinner
-            submitButton.disabled = false;
-            if (spinner) spinner.style.display = "none";
-            isSubmitting = false; // Liberar el bloqueo
-        });
-});
-    </script>
-    
+
+            alert('Formulario enviado con éxito');
+            document.getElementById("contactForm").reset();
+        } catch (error) {
+            alert('Error al enviar el formulario: ' + error.message);
+            console.error('Error:', error);
+        }
+    });
+</script>
 
 
 
