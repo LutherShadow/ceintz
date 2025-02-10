@@ -460,11 +460,54 @@
                 </div>
             </div>
         </div>
-
-        </main>
-        <div class="ceintz-circle-wrapper">
-            <div class="ceintz-circle-container">
-                 <a href="https://www.bbva.com" target="_blank">
+          <style>
+            /* Estilos para la animación en línea recta */
+            .circle-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                position: relative;
+                height: 150px; /* Altura del contenedor de la animación */
+                margin: 20px 0;
+            }
+    
+            .circle-container {
+                display: flex;
+                gap: 20px; /* Espacio entre los círculos */
+                position: absolute;
+                white-space: nowrap;
+            }
+    
+            .circle {
+                width: 80px; /* Tamaño de los círculos */
+                height: 80px;
+                border: 2px solid #007BFF;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: transparent;
+                background-size: cover;
+                background-position: center;
+                animation: moveAndRotate 8s linear infinite; /* Animación combinada */
+            }
+    
+            /* Animación para mover en línea recta y rotar */
+            @keyframes moveAndRotate {
+                0% {
+                    transform: translateX(-100%) rotate(0deg);
+                }
+                100% {
+                    transform: translateX(100%) rotate(0deg);
+                }
+            }
+        </style>
+        
+        <!-- Animación de círculos en línea recta -->
+        <div class="circle-wrapper">
+            <div class="circle-container">
+                <a href="https://www.bbva.com" target="_blank">
                     <div class="circle" style="background-image: url('./LOGOS_CEINTZ/BBVA.png');"></div>
                 </a>
                 <a href="https://www.fonacot.gob.mx" target="_blank">
@@ -493,7 +536,8 @@
                 </a>
             </div>
         </div>   
-    </main>
+
+        </main>
 
     <footer>
         <div class="footer-content">
