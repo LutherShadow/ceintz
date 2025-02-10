@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CEINTZ - Login</title>
 
-    <!-- Supabase -->
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script>
         const supabaseUrl = 'https://gpdexqhhxladxvwchofu.supabase.co'
@@ -13,41 +12,53 @@
         window.supabase = supabase.createClient(supabaseUrl, supabaseKey)
     </script>
 
-    <!-- External Scripts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/trefoil.js"></script>
     
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="./css/header.css">
     <link rel="icon" href="./img/Image.ico" type="image/x-icon">
 
     <style>
-        .logo-text-container {
+        /* ... (Existing styles) ... */
+
+        .content-container { /* New container for logo and text */
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 20px;
+            align-items: center; /* Vertically align items */
+            justify-content: space-between; /* Space between logo and text */
+            padding: 20px; /* Add some padding */
         }
-        .logo-text-container h1 {
-            margin: 0;
-            font-size: 1.5rem;
-            text-align: right;
-            flex: 1;
-            padding-left: 20px; /* Espacio entre el logo y el texto */
+
+        .content-container h1 {
+            margin: 0; /* Remove default margin from h1 */
+            font-size: 1.8rem; /* Adjust font size as needed */
+            text-align: right; /* Align text to the right */
         }
-        .logo-text-container img {
-            height: 60px;
+
+        .content-container img {
+            height: 80px; /* Adjust height as needed */
+            margin-right: 20px; /* Add space between logo and text */
+        }
+        @media screen and (max-width: 768px) {
+            .content-container {
+                flex-direction: column; /* Stack logo and text vertically */
+                align-items: center; /* Center items horizontally */
+                text-align: center; /* Center text */
+            }
+            .content-container h1 {
+                text-align: center;
+                margin-top: 10px; /* Add margin top for spacing */
+            }
+
+            .content-container img {
+                margin-right: 0; /* Remove right margin on smaller screens */
+                margin-bottom: 10px; /* Add bottom margin */
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="logo-text-container">
-        <img src="./img/LOGO_Ceintz.png" alt="Logo CEINTZ">
+    <div class="content-container">  <img src="./img/LOGO_Ceintz.png" alt="Logo CEINTZ">
         <h1>Centro de Emprendimiento Innovación y Negocios del Instituto Tecnológico Superior de Zacapoaxtla (CEINTZ)</h1>
     </div>
 
