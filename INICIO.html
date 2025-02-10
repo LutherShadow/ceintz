@@ -297,16 +297,52 @@
             }
         }
 
-        /* Estilos específicos para el carrusel */
+       /* Estilos específicos para el carrusel - MODIFICADO */
+        .ceintz-carrusel { /* Contenedor específico para el carrusel */
+            width: 100%; /* O el ancho deseado */
+            overflow: hidden; /* Evita que las imágenes se desborden */
+        }
         .ceintz-carrusel .carousel {
             width: 100%;
         }
 
+        .ceintz-carrusel .carousel-inner {
+            display: flex; /* Para controlar el tamaño de las imágenes */
+        }
+
+        .ceintz-carrusel .carousel-item {
+            flex: 0 0 100%; /* Cada elemento ocupa el 100% del ancho */
+            display: flex; /* Centrar verticalmente las imágenes */
+            justify-content: center; /* Centrar horizontalmente las imágenes */
+            align-items: center;
+        }
+
         .ceintz-carrusel .carousel img {
-            width: 100%;
-            height: auto;
+            max-width: 100%;  /* Ajustar el ancho máximo de la imagen */
+            max-height: 500px; /* Ajustar la altura máxima de la imagen */
+            width: auto;     /* Ancho automático para mantener la proporción */
+            height: auto;    /* Alto automático para mantener la proporción */
+            object-fit: cover; /* Para que la imagen cubra el contenedor sin deformarse, recortando si es necesario */
             border-radius: 10px;
         }
+
+        /* ... (Rest of your existing CSS) ... */
+
+        .ceintz-container {
+            display: flex;
+            align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .ceintz-container {
+                flex-direction: column;
+                align-items: center; /* Centra horizontalmente en pantallas pequeñas */
+                text-align: center;
+            }
+        }
+
 
         /* Estilos específicos para la animación de círculos */
         .ceintz-circle-wrapper {
@@ -387,31 +423,19 @@
     </nav>
 
     <main class="ceintz-main">
+      <main class="ceintz-main">
         <h1 class="ceintz-h1"><b>Centro de Emprendimiento Innovación y Negocios del Instituto Tecnológico Superior de Zacapoaxtla (CEINTZ)</b></h1>
         <div class="ceintz-container">
             <div class="ceintz-texto-cuadro">
                 <h2>¿Quiénes somos?</h2>
                 <p>El Centro de Emprendimiento Innovación y Negocios del Instituto Tecnológico Superior de Zacapoaxtla (CEINTZ), es un laboratorio empresarial que busca impulsar y apoyar la creación y/o el desarrollo de empresas y negocios en la zona nororiental del Estado de Puebla, que contribuyan al desarrollo económico sostenible de la región.</p>
             </div>
-            <div class="ceintz-carrusel">
-                <div id="ceintzCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="ceintz-carrusel">  <div id="ceintzCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="./img/coloquio/2.jpg" class="d-block w-100 ceintz-mandala-img" alt="Imagen 1 del CEINTZ">
+                            <img src="./img/coloquio/2.jpg" class="d-block w-100" alt="Imagen 1 del CEINTZ">
                         </div>
-                        <div class="carousel-item">
-                            <img src="./FOTOS IA_2025/ZZZ.JPG" class="d-block w-100 ceintz-mandala-img" alt="Imagen 3 del CEINTZ">
                         </div>
-                        <div class="carousel-item">
-                            <img src="./img/coloquio/3.jpg" class="d-block w-100 ceintz-mandala-img" alt="Imagen 2 del CEINTZ">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./FOTOS IA_2025/LEHG.JPG" class="d-block w-100 ceintz-mandala-img" alt="Imagen 3 del CEINTZ">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./FOTOS IA_2025/DGB.JPG" class="d-block w-100 ceintz-mandala-img" alt="Imagen 1 del CEINTZ">
-                        </div>
-                    </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#ceintzCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
@@ -423,6 +447,8 @@
                 </div>
             </div>
         </div>
+
+        </main>
         <div class="ceintz-circle-wrapper">
             <div class="ceintz-circle-container">
                  <a href="https://www.bbva.com" target="_blank">
