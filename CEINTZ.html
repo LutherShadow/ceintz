@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEINTZ</title>
+    
+    <!-- External Scripts -->
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/trefoil.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    
+    <!-- Stylesheets -->
+    <link rel="icon" href="img/Image.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/CEINTZusu.css">
+    <style>
+        .copy-icon {
+            cursor: pointer;
+            margin-left: 5px;
+            font-size: 14px;
+            color: #007bff;
+        }
+        .copy-icon:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="./img/gob_mx.png" alt="Logo Gobierno">
+            <img src="./img/educacion_logo.png" alt="Logo Educación">
+            <img src="./img/Logo-TecNM.png" alt="Logo TecNM">
+            <img src="./img/ITSZ1.png" alt="Logo ITSZ">
+        </div>
+    </header>    
+
+    <div class="container" id="container">
+        <div class="hamburger-menu" onclick="toggleHamburgerMenu()">&#9776;</div> <!-- Icono de hamburguesa -->
+        <div class="right-container">
+            <button onclick="toggleDisplay('tableOption1')">Administradores</button>
+            <button onclick="toggleDisplay('formOption2')">Usuarios</button>
+            <button onclick="toggleDisplay('formOption3')">Contactos de CEINTZ</button>
+            <button onclick="toggleDisplay('formOption4')">Estadisticas</button>
+            <button onclick="logout()">Cerrar Sesión</button>
+        </div>
+    
+        <div class="content-container">
+            <!-- Administradores -->
+            <div class="table-container" id="tableOption1">
+                <h3>Administradores</h3>
+                <form onsubmit="addAdmin(event)">
+                    <label for="nombreAdmin">Nombre:</label>
+                    <input type="text" id="nombreAdmin" name="nombreAdmin" required>
+                    
+                    <label for="usuarioAdmin">Usuario:</label>
+                    <input type="text" id="usuarioAdmin" name="usuarioAdmin" required>
+                    
+                    <label for="contrasenaAdmin">Contraseña:</label>
+                    <input type="password" id="contrasenaAdmin" name="contrasenaAdmin" required>
+                    
+                    <button type="submit">Agregar Administrador</button>
+                </form>
+                <table id="adminTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre Admin</th>
+                            <th>Usuario Admin</th>
+                            <th>Contraseña</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Las filas se llenarán dinámicamente con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Usuarios -->
+            <div class="table-container" id="formOption2" style="display: none;">
+                <h3>Tabla de Usuarios</h3>
+                <form onsubmit="addUser(event)">
+                    <label for="nombreUsuario">Nombre:</label>
+                    <input type="text" id="nombreUsuario" name="nombreUsuario" required>
+                    
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" id="usuario" name="usuario" required>
+                    
+                    <label for="contrasenaUsuario">Contraseña:</label>
+                    <input type="password" id="contrasenaUsuario" name="contrasenaUsuario" required>
+                        
+                    <button type="submit">Agregar Usuario</button>
+                </form>
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre Usuario</th>
+                            <th>Usuario</th>
+                            <th>Contraseña</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Las filas se llenarán dinámicamente con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tabla de Contactos -->
+            <div class="table-container" id="formOption3">
+                <h3>Contactos</h3>
+                <button onclick="exportTableToExcel()">Descargar en Excel</button>
+                <table id="contactTable" border="1" cellpadding="5" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID Contacto</th>
+                            <th>Nombre</th>
+                            <th class="correo-column">Correo</th>
+                            <th>Dudas</th>
+                            <th class="telefono-column">Teléfono</th>
+                            <th>Fecha de Contacto</th>
+                            <th>Horario de Contacto</th>
+                            <th>Estatus</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contactTableBody">
+                        <!-- Las filas se llenarán dinámicamente con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="form-container" id="formOption4">
+                <h3>Estadísticas de Formularios</h3>
+                <table border="1" cellpadding="5" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Semana</th>
+                            <th>Cantidad de Formularios Enviados</th>
+                        </tr>
+                    </thead>
+                    <tbody id="semanalTable"></tbody>
+                </table>
+
+                <button onclick="downloadPDF()">Descargar Estadísticas en PDF</button>
+
+                <div class="chart-container">
+                    <canvas id="weeklyChart"></canvas>
+                    <canvas id="monthlyChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para copiar texto al portapapeles
+        function copyToClipboard(text) {
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            alert("Copiado: " + text);
+        }
+
+        // Función para llenar la tabla con datos
+        function fillTable(data) {
+            const tbody = document.getElementById("contactTableBody");
+            tbody.innerHTML = ""; // Limpiar el contenido anterior
+
+            data.forEach((row) => {
+                const tr = document.createElement("tr");
+
+                // Crear celdas para cada columna
+                tr.innerHTML = `
+                    <td>${row.ID_Contacto}</td>
+                    <td>${row.Nombre}</td>
+                    <td class="correo-column">${row.Correo} <span class="copy-icon" onclick="copyToClipboard('${row.Correo}')">📋</span></td>
+                    <td>${row.Dudas}</td>
+                    <td class="telefono-column">${row.Telefono} <span class="copy-icon" onclick="copyToClipboard('${row.Telefono}')">📋</span></td>
+                    <td>${row.Fecha_Contacto}</td>
+                    <td>${row.Horario_Contacto}</td>
+                    <td>${row.Estatus}</td>
+                `;
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Función para obtener los datos del servidor
+        async function fetchData() {
+            try {
+                const response = await fetch("procesar_formulario.php"); // Cambia "tu_archivo.php" por la ruta correcta
+                const result = await response.json();
+                console.log(result); // Verifica los datos recibidos
+
+                if (result.status === "success") {
+                    fillTable(result.data); // Llenar la tabla con los datos
+                } else {
+                    console.error("Error al obtener los datos:", result.message);
+                }
+            } catch (error) {
+                console.error("Error en la solicitud:", error);
+            }
+        }
+
+        // Llamar a fetchData cuando la página cargue
+        window.onload = fetchData;
+    </script>
+
+    <script src="./js/CEINTZ.js"></script>
+</body>
+</html>
