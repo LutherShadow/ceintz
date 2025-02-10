@@ -23,29 +23,33 @@
     <link rel="icon" href="./img/Image.ico" type="image/x-icon">
 
     <style>
-        .header {
+        .logo-text-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 20px;
             background-color: #f8f9fa;
             border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
         }
-        .header h1 {
+        .logo-text-container h1 {
             margin: 0;
             font-size: 1.5rem;
-            text-align: left;
+            text-align: right;
+            flex: 1;
+            padding-left: 20px; /* Espacio entre el logo y el texto */
         }
-        .header img {
+        .logo-text-container img {
             height: 60px;
         }
     </style>
 </head>
 <body>
 
-        <h1>Centro de Emprendimiento Innovación y Negocios del Instituto Tecnológico Superior de Zacapoaxtla (CEINTZ)</h1>
+    <div class="logo-text-container">
         <img src="./img/LOGO_Ceintz.png" alt="Logo CEINTZ">
- 
+        <h1>Centro de Emprendimiento Innovación y Negocios del Instituto Tecnológico Superior de Zacapoaxtla (CEINTZ)</h1>
+    </div>
 
     <div class="loader" id="loader">
         <l-trefoil
