@@ -7,65 +7,371 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="ceintz.css"> <!-- Nuevo archivo CSS -->
+    <link rel="stylesheet" href="ceintz.css"> <!-- Archivo CSS específico -->
     <style>
-        /* Estilos adicionales */
-        .contenedor-principal {
+        /* Estilos generales encapsulados */
+        .ceintz-root {
+            --primary-color: #063883;
+            --secondary-color: #ff0000;
+            --text-color: #333;
+            --bg-color: #fff;
+            --footer-bg-color: rgb(7, 61, 36);
+            --hover-bg-color: rgba(28, 7, 185, 0.8);
+            --transition-speed: 0.3s;
+        }
+
+        .ceintz-body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        /* Header */
+        .ceintz-header {
             display: flex;
-            align-items: flex-start; /* Alinea los elementos al inicio */
-            gap: 20px; /* Espacio entre el texto y el carrusel */
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+            background-color: var(--bg-color);
+            flex-wrap: wrap;
         }
 
-        .texto-cuadro {
-            flex: 5; /* Ocupa el espacio disponible */
-            text-align: justify;
-            line-height: 1.6;
+        .ceintz-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .carrusel-container {
-            flex: 1; /* Ocupa el espacio disponible */
-            max-width: 80%; /* Aumentamos el ancho del carrusel */
+        .ceintz-logo-container img {
+            max-height: 100px;
+            margin-right: 1rem;
         }
 
-        .carousel {
-            width: 100%; /* Asegura que el carrusel ocupe el 100% del contenedor */
+        @media (max-width: 768px) {
+            .ceintz-logo-container img:not(:first-child) {
+                display: none;
+            }
         }
 
-        .carousel img {
+        /* Navbar */
+        .ceintz-nav {
+            width: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .ceintz-menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .ceintz-menu > li {
+            position: relative;
+        }
+
+        .ceintz-menu > li > a {
+            color: var(--bg-color);
+            padding: 1rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .ceintz-menu > li > a:hover {
+            background-color: var(--hover-bg-color);
+        }
+
+        .ceintz-menu > li:hover > a i.ri-arrow-down-s-line {
+            transform: rotate(180deg);
+            transition: transform var(--transition-speed);
+        }
+
+        .ceintz-submenu {
+            display: none;
+            position: absolute;
+            background-color: var(--primary-color);
+            list-style-type: none;
+            padding: 0;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            z-index: 1000;
+        }
+
+        .ceintz-submenu a {
+            color: var(--bg-color);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.85rem;
+        }
+
+        .ceintz-submenu a:hover {
+            background-color: var(--hover-bg-color);
+        }
+
+        .ceintz-menu li:hover > .ceintz-submenu {
+            display: block;
+        }
+
+        .ceintz-nav__toggle {
+            display: none;
+        }
+
+        /* Main content */
+        .ceintz-main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .ceintz-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .ceintz-mandala-img {
+            border-radius: 0%;
+            box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.3);
+            width: 650px;
+            height: auto;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .ceintz-texto-cuadro {
+            width: 600px;
+            padding: 1.5rem;
+            border: 1px solid var(--primary-color);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .ceintz-h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 2em;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        @media (max-width: 768px) {
+            .ceintz-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .ceintz-mandala-img {
+                width: 100%;
+                height: auto;
+                max-width: 300px;
+            }
+
+            .ceintz-texto-cuadro {
+                margin: 0;
+                padding: 1rem;
+                width: 100%;
+            }
+        }
+
+        /* Footer */
+        .ceintz-footer {
+            background-image: url('./img/footerLM.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--bg-color);
+            padding: 2em;
+            margin-top: 2rem;
+        }
+
+        .ceintz-footer a {
+            color: var(--bg-color);
+            text-decoration: none;
+            transition: color var(--transition-speed), transform var(--transition-speed);
+        }
+
+        .ceintz-footer a:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+
+        .ceintz-footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .ceintz-footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .ceintz-footer-social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .ceintz-footer-social-icons a {
+            font-size: 1.5rem;
+            color: var(--bg-color);
+        }
+
+        .ceintz-footer p, .ceintz-footer a {
+            color: #ffffff;
+        }
+
+        .ceintz-dark-mode-toggle {
+            background-color: transparent;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .ceintz-body.dark-mode {
+            --primary-color: #ff0000;
+            --secondary-color: #840707;
+            --text-color: #333;
+            --bg-color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .ceintz-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .ceintz-nav__toggle {
+                display: block;
+                font-size: 2rem;
+                cursor: pointer;
+            }
+
+            .ceintz-menu.show {
+                display: flex;
+            }
+
+            .ceintz-submenu {
+                position: static;
+                width: 100%;
+            }
+
+            .ceintz-submenu a {
+                padding-left: 2rem;
+            }
+
+            .ceintz-footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .ceintz-footer-section {
+                width: 100%;
+                text-align: left;
+            }
+
+            .ceintz-footer p {
+                text-align: left;
+            }
+        }
+
+        /* Estilos específicos para el carrusel */
+        .ceintz-carrusel .carousel {
+            width: 100%;
+        }
+
+        .ceintz-carrusel .carousel img {
             width: 100%;
             height: auto;
-            border-radius: 10px; /* Opcional: bordes redondeados */
+            border-radius: 10px;
+        }
+
+        /* Estilos específicos para la animación de círculos */
+        .ceintz-circle-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            height: 150px;
+            margin: 20px 0;
+        }
+
+        .ceintz-circle-container {
+            display: flex;
+            gap: 20px;
+            position: absolute;
+            white-space: nowrap;
+        }
+
+        .ceintz-circle {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #007BFF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            background-size: cover;
+            background-position: center;
+            animation: moveAndRotate 8s linear infinite;
+        }
+
+        @keyframes moveAndRotate {
+            0% { transform: translateX(-100%) rotate(0deg); }
+            100% { transform: translateX(100%) rotate(0deg); }
         }
     </style>
 </head>
-<body>
-
-    <header>
-        <div class="logo-container">
+<body class="ceintz-body">
+    <header class="ceintz-header">
+        <div class="ceintz-logo-container">
             <img src="./img/gob_mx.png" alt="Logo Gobierno" style="width: 250px;">
             <img src="./img/educacion_logo.png" alt="Logo Educación" style="width: 250px;">
             <img src="./img/Logo-TecNM.png" alt="Logo TecNM" style="width: 280px;">
             <img src="./img/ITSZ1.png" alt="Logo ITSZ" style="width: 90px;">
         </div>
-        
     </header>
 
-    <nav>
-        <div class="nav__toggle" id="nav-toggle">
+    <nav class="ceintz-nav">
+        <div class="ceintz-nav__toggle" id="nav-toggle">
             <i class="ri-menu-line"></i>
         </div>
-        <ul class="menu" id="nav-menu">
+        <ul class="ceintz-menu" id="nav-menu">
             <li><a href="./INICIO.html"><i class="ri-home-line"></i> INICIO</a></li>
             <li>
                 <a href="#"><i class="ri-file-list-line"></i> OBJETIVOS <i class="ri-arrow-down-s-line"></i></a>
-                <ul class="submenu">
+                <ul class="ceintz-submenu">
                     <li><a href="./OBJETIVO_GENERAL.html">GENERAL</a></li>
                     <li><a href="./OBJETIVOS_ESPECI.html">ESPECIFICOS</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="ri-group-line"></i> MISIÓN <i class="ri-arrow-down-s-line"></i></a>
-                <ul class="submenu">
+                <ul class="ceintz-submenu">
                     <li><a href="./MISIÓN.html">MISIÓN</a></li>
                     <li><a href="./VISIÓN.html">VISIÓN</a></li>
                     <li><a href="./VALORES.html">VALORES</a></li>
@@ -80,37 +386,32 @@
         </ul>
     </nav>
 
-    <main>
-        <h1><b>Centro de Emprendimiento Innovación y Negocios del Instituto Tecnológico Superior de Zacapoaxtla (CEINTZ)</b></h1>
-        <div class="container contenedor-principal">
-            <!-- Texto a la izquierda -->
-            <div class="texto-cuadro">
+    <main class="ceintz-main">
+        <h1 class="ceintz-h1"><b>Centro de Emprendimiento Innovación y Negocios del Instituto Tecnológico Superior de Zacapoaxtla (CEINTZ)</b></h1>
+        <div class="ceintz-container">
+            <div class="ceintz-texto-cuadro">
                 <h2>¿Quiénes somos?</h2>
                 <p>El Centro de Emprendimiento Innovación y Negocios del Instituto Tecnológico Superior de Zacapoaxtla (CEINTZ), es un laboratorio empresarial que busca impulsar y apoyar la creación y/o el desarrollo de empresas y negocios en la zona nororiental del Estado de Puebla, que contribuyan al desarrollo económico sostenible de la región.</p>
             </div>
-
-            <!-- Carrusel a la derecha -->
-            <div class="carrusel-container">
+            <div class="ceintz-carrusel">
                 <div id="ceintzCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="./img/coloquio/2.jpg" class="d-block w-100 mandala-img" alt="Imagen 1 del CEINTZ">
-                        </div>
-                         <div class="carousel-item">
-                            <img src="./FOTOS IA_2025/ZZZ.JPG" class="d-block w-100 mandala-img" alt="Imagen 3 del CEINTZ">
+                            <img src="./img/coloquio/2.jpg" class="d-block w-100 ceintz-mandala-img" alt="Imagen 1 del CEINTZ">
                         </div>
                         <div class="carousel-item">
-                            <img src="./img/coloquio/3.jpg" class="d-block w-100 mandala-img" alt="Imagen 2 del CEINTZ">
+                            <img src="./FOTOS IA_2025/ZZZ.JPG" class="d-block w-100 ceintz-mandala-img" alt="Imagen 3 del CEINTZ">
                         </div>
-                       
                         <div class="carousel-item">
-                            <img src="./FOTOS IA_2025/LEHG.JPG" class="d-block w-100 mandala-img" alt="Imagen 3 del CEINTZ">
+                            <img src="./img/coloquio/3.jpg" class="d-block w-100 ceintz-mandala-img" alt="Imagen 2 del CEINTZ">
                         </div>
-                        <div class="carousel-item ">
-                            <img src="./FOTOS IA_2025/DGB.JPG" class="d-block w-100 mandala-img" alt="Imagen 1 del CEINTZ">
+                        <div class="carousel-item">
+                            <img src="./FOTOS IA_2025/LEHG.JPG" class="d-block w-100 ceintz-mandala-img" alt="Imagen 3 del CEINTZ">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./FOTOS IA_2025/DGB.JPG" class="d-block w-100 ceintz-mandala-img" alt="Imagen 1 del CEINTZ">
                         </div>
                     </div>
-                    <!-- Controles del carrusel -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#ceintzCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
@@ -122,70 +423,25 @@
                 </div>
             </div>
         </div>
-        <style>
-            /* Estilos para la animación en línea recta */
-            .circle-wrapper {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                overflow: hidden;
-                position: relative;
-                height: 150px; /* Altura del contenedor de la animación */
-                margin: 20px 0;
-            }
-    
-            .circle-container {
-                display: flex;
-                gap: 20px; /* Espacio entre los círculos */
-                position: absolute;
-                white-space: nowrap;
-            }
-    
-            .circle {
-                width: 80px; /* Tamaño de los círculos */
-                height: 80px;
-                border: 2px solid #007BFF;
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: transparent;
-                background-size: cover;
-                background-position: center;
-                animation: moveAndRotate 8s linear infinite; /* Animación combinada */
-            }
-    
-            /* Animación para mover en línea recta y rotar */
-            @keyframes moveAndRotate {
-                0% {
-                    transform: translateX(-100%) rotate(0deg);
-                }
-                100% {
-                    transform: translateX(100%) rotate(0deg);
-                }
-            }
-        </style>
-        
-        <!-- Animación de círculos en línea recta -->
-        <div class="circle-wrapper">
-            <div class="circle-container">
+        <div class="ceintz-circle-wrapper">
+            <div class="ceintz-circle-container">
                 <a href="https://www.bbva.com" target="_blank">
-                    <div class="circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/BBVA.png');"></div>
+                    <div class="ceintz-circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/BBVA.png');"></div>
                 </a>
                 <a href="https://www.fonacot.gob.mx" target="_blank">
-                    <div class="circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/FONACOT.png');"></div>
+                    <div class="ceintz-circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/FONACOT.png');"></div>
                 </a>
                 <a href="https://www.hsbc.com.mx" target="_blank">
-                    <div class="circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/HSBC.jpeg');"></div>
+                    <div class="ceintz-circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/HSBC.jpeg');"></div>
                 </a>
                 <a href="https://www.impi.gob.mx" target="_blank">
-                    <div class="circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/IMPI.jpg');"></div>
+                    <div class="ceintz-circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/IMPI.jpg');"></div>
                 </a>
                 <a href="https://www.imss.gob.mx/bienestar" target="_blank">
-                    <div class="circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/IMSS-Bienestar.png');"></div>
+                    <div class="ceintz-circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/IMSS-Bienestar.png');"></div>
                 </a>
                 <a href="https://www.gob.mx/proteccioncivil" target="_blank">
-                    <div class="circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/PROTECCION\ CIVIL.jpg');"></div>
+                    <div class="ceintz-circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/PROTECCION\ CIVIL.jpg');"></div>
                 </a>
                 <a href="https://www.sat.gob.mx" target="_blank">
                     <div class="circle" style="background-image: url('../CEINTZ/LOGOS_CEINTZ/SAT.jpg');"></div>
