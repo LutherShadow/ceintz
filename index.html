@@ -71,42 +71,55 @@
 </div>
 
 <script>
-    // Mostrar el loader y ocultar el contenedor al inicio
-    document.getElementById('loader').style.display = 'flex';
-    document.getElementById('container').style.display = 'none';
+        // Mostrar el loader y ocultar el contenedor al inicio
+        document.getElementById('loader').style.display = 'flex';
+        document.getElementById('container').style.display = 'none';
 
-    // Después de 2 segundos, ocultar el loader y mostrar el contenedor
-    setTimeout(() => {
-        document.getElementById('loader').style.display = 'none';
-        document.getElementById('container').style.display = 'flex';
-    }, 2000);
+        // Después de 2 segundos, ocultar el loader y mostrar el contenedor
+        setTimeout(() => {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('container').style.display = 'flex';
+        }, 2000);
 
-    async function handleLogin(event) {
-        event.preventDefault();
-        
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+        async function handleLogin(event) {
+            event.preventDefault();
 
-        try {
-            // Solo verificar administradores
-            const { data: adminData, error } = await window.supabase
-                .from('administrador')
-                .select()
-                .eq('usuario_admin', username)
-                .eq('contrasena_admin', password)
-                .single();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-            if (adminData) {
-                window.location.href = './CEINTZusu.html';
-                return;
+            try {
+                // Verificar si es administrador
+                const { data: adminData, error: adminError } = await window.supabase
+                    .from('administrador')
+                    .select()
+                    .eq('usuario_admin', username)
+                    .eq('contrasena_admin', password)
+                    .single();
+
+                if (adminData) {
+                    window.location.href = './CEINTZ.html';
+                    return;
+                }
+
+                // Verificar si es usuario normal
+                const { data: userData, error: userError } = await window.supabase
+                    .from('usuario')
+                    .select()
+                    .eq('usuario', username)
+                    .eq('contrasena', password)
+                    .single();
+
+                if (userData) {
+                    window.location.href = './CEINTZusu.html';
+                    return;
+                }
+
+                alert('Usuario o contraseña incorrectos');
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al iniciar sesión');
             }
-
-            alert('Usuario o contraseña incorrectos');
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Error al iniciar sesión');
         }
-    }
-</script>
+    </script>
 </body>
 </html> 
