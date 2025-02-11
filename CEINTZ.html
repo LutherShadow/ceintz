@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CEINTZ</title>
-    
     <!-- External Scripts -->
-    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/trefoil.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-    
     <!-- Stylesheets -->
     <link rel="icon" href="img/Image.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/header.css">
@@ -26,91 +24,63 @@
         .copy-icon:hover {
             color: #0056b3;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
+    <!-- Supabase -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+        // Inicializar Supabase globalmente
+        const supabaseUrl = 'https://gpdexqhhxladxvwchofu.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwZGV4cWhoeGxhZHh2d2Nob2Z1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg3MjM3OTMsImV4cCI6MjA1NDI5OTc5M30.lC8ryRSfyZVPRTqVZYGdkM6jeV3n-emK_YFi1Le3atY'
+        window.supabase = supabase.createClient(supabaseUrl, supabaseKey)
+    </script>
 </head>
 <body>
     <header>
         <div class="logo-container">
             <img src="./img/gob_mx.png" alt="Logo Gobierno">
             <img src="./img/educacion_logo.png" alt="Logo Educación">
-            <img src="./img/Logo-TecNM.png" alt="Logo TecNM">
+            <img src="./img/1.2.1.png" alt="Logo TecNM">
             <img src="./img/ITSZ1.png" alt="Logo ITSZ">
         </div>
-    </header>    
-
+    </header>
     <div class="container" id="container">
-        <div class="hamburger-menu" onclick="toggleHamburgerMenu()">&#9776;</div> <!-- Icono de hamburguesa -->
+        <div class="hamburger-menu" onclick="toggleHamburgerMenu()" aria-label="Menú">&#9776;</div>
+        
         <div class="right-container">
-            <button onclick="toggleDisplay('tableOption1')">Administradores</button>
-            <button onclick="toggleDisplay('formOption2')">Usuarios</button>
-            <button onclick="toggleDisplay('formOption3')">Contactos de CEINTZ</button>
-            <button onclick="toggleDisplay('formOption4')">Estadisticas</button>
-            <button onclick="logout()">Cerrar Sesión</button>
+            <button onclick="toggleDisplay('formOption3')" aria-label="Contactos de CEINTZ">Contactos de CEINTZ</button>
+            <button onclick="toggleDisplay('formOption5')" aria-label="Administradores">Administradores</button>
+            <button onclick="logout()" aria-label="Cerrar sesión">Cerrar Sesión</button>
         </div>
-    
         <div class="content-container">
-            <!-- Administradores -->
-            <div class="table-container" id="tableOption1">
-                <h3>Administradores</h3>
-                <form onsubmit="addAdmin(event)">
-                    <label for="nombreAdmin">Nombre:</label>
-                    <input type="text" id="nombreAdmin" name="nombreAdmin" required>
-                    
-                    <label for="usuarioAdmin">Usuario:</label>
-                    <input type="text" id="usuarioAdmin" name="usuarioAdmin" required>
-                    
-                    <label for="contrasenaAdmin">Contraseña:</label>
-                    <input type="password" id="contrasenaAdmin" name="contrasenaAdmin" required>
-                    
-                    <button type="submit">Agregar Administrador</button>
-                </form>
-                <table id="adminTable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre Admin</th>
-                            <th>Usuario Admin</th>
-                            <th>Contraseña</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Las filas se llenarán dinámicamente con JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Usuarios -->
-            <div class="table-container" id="formOption2" style="display: none;">
-                <h3>Tabla de Usuarios</h3>
-                <form onsubmit="addUser(event)">
-                    <label for="nombreUsuario">Nombre:</label>
-                    <input type="text" id="nombreUsuario" name="nombreUsuario" required>
-                    
-                    <label for="usuario">Usuario:</label>
-                    <input type="text" id="usuario" name="usuario" required>
-                    
-                    <label for="contrasenaUsuario">Contraseña:</label>
-                    <input type="password" id="contrasenaUsuario" name="contrasenaUsuario" required>
-                        
-                    <button type="submit">Agregar Usuario</button>
-                </form>
-                <table id="userTable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre Usuario</th>
-                            <th>Usuario</th>
-                            <th>Contraseña</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Las filas se llenarán dinámicamente con JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-
             <!-- Tabla de Contactos -->
             <div class="table-container" id="formOption3">
                 <h3>Contactos</h3>
@@ -133,87 +103,193 @@
                     </tbody>
                 </table>
             </div>
-
-            <!-- Estadísticas -->
-            <div class="form-container" id="formOption4">
-                <h3>Estadísticas de Formularios</h3>
-                <table border="1" cellpadding="5" cellspacing="0">
+            <!-- Tabla de Administradores -->
+            <div class="table-container" id="formOption5" style="display: none;">
+                <h3>Administradores</h3>
+                <button onclick="openAddAdminForm()">Agregar Nuevo Administrador</button>
+                <table id="adminTable" border="1" cellpadding="5" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Semana</th>
-                            <th>Cantidad de Formularios Enviados</th>
+                            <th>ID Administrador</th>
+                            <th>Nombre</th>
+                            <th>Usuario</th>
+                            <th>Contraseña</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody id="semanalTable"></tbody>
+                    <tbody id="adminTableBody">
+                        <!-- Las filas se llenarán dinámicamente con JavaScript -->
+                    </tbody>
                 </table>
-
-                <button onclick="downloadPDF()">Descargar Estadísticas en PDF</button>
-
-                <div class="chart-container">
-                    <canvas id="weeklyChart"></canvas>
-                    <canvas id="monthlyChart"></canvas>
-                </div>
             </div>
         </div>
     </div>
 
+    <!-- Modal para Agregar Administrador -->
+    <div id="addAdminModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddAdminForm()">&times;</span>
+            <h3>Agregar Nuevo Administrador</h3>
+            <form id="addAdminForm">
+                <label for="nombre_admin">Nombre:</label>
+                <input type="text" id="nombre_admin" name="nombre_admin" required><br>
+                <label for="usuario_admin">Usuario:</label>
+                <input type="text" id="usuario_admin" name="usuario_admin" required><br>
+                <label for="contrasena_admin">Contraseña:</label>
+                <input type="password" id="contrasena_admin" name="contrasena_admin" required><br>
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        // Función para copiar texto al portapapeles
-        function copyToClipboard(text) {
-            const tempInput = document.createElement("input");
-            tempInput.value = text;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-            alert("Copiado: " + text);
+        // Función para exportar a Excel
+        window.exportTableToExcel = function() {
+            const table = document.getElementById('contactTable');
+            const wb = XLSX.utils.table_to_book(table, { sheet: "Contactos" });
+            XLSX.writeFile(wb, 'Contactos.xlsx');
         }
 
-        // Función para llenar la tabla con datos
-        function fillTable(data) {
-            const tbody = document.getElementById("contactTableBody");
-            tbody.innerHTML = ""; // Limpiar el contenido anterior
-
-            data.forEach((row) => {
-                const tr = document.createElement("tr");
-
-                // Crear celdas para cada columna
-                tr.innerHTML = `
-                    <td>${row.ID_Contacto}</td>
-                    <td>${row.Nombre}</td>
-                    <td class="correo-column">${row.Correo} <span class="copy-icon" onclick="copyToClipboard('${row.Correo}')">📋</span></td>
-                    <td>${row.Dudas}</td>
-                    <td class="telefono-column">${row.Telefono} <span class="copy-icon" onclick="copyToClipboard('${row.Telefono}')">📋</span></td>
-                    <td>${row.Fecha_Contacto}</td>
-                    <td>${row.Horario_Contacto}</td>
-                    <td>${row.Estatus}</td>
-                `;
-
-                tbody.appendChild(tr);
-            });
-        }
-
-        // Función para obtener los datos del servidor
-        async function fetchData() {
+        // Función para copiar al portapapeles
+        window.copyToClipboard = async function(text) {
             try {
-                const response = await fetch("procesar_formulario.php"); // Cambia "tu_archivo.php" por la ruta correcta
-                const result = await response.json();
-                console.log(result); // Verifica los datos recibidos
-
-                if (result.status === "success") {
-                    fillTable(result.data); // Llenar la tabla con los datos
-                } else {
-                    console.error("Error al obtener los datos:", result.message);
-                }
-            } catch (error) {
-                console.error("Error en la solicitud:", error);
+                await navigator.clipboard.writeText(text);
+                console.log("Texto copiado:", text);
+            } catch (err) {
+                console.error("Error al copiar:", err);
             }
         }
 
-        // Llamar a fetchData cuando la página cargue
-        window.onload = fetchData;
-    </script>
+        // Función para mostrar/ocultar secciones
+        window.toggleDisplay = function(sectionId) {
+            document.querySelectorAll('.form-container, .table-container').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
 
-    <script src="./js/CEINTZ.js"></script>
+        // Función para cerrar sesión
+        window.logout = async function() {
+            try {
+                const { error } = await window.supabase.auth.signOut();
+                window.location.href = './index.html';
+            } catch (error) {
+                console.error("Error al cerrar sesión:", error);
+                window.location.href = './index.html';
+            }
+        }
+
+        // Función para llenar la tabla de contactos
+        async function fillContactTable() {
+            try {
+                const { data, error } = await window.supabase
+                    .from('contacto')
+                    .select('*');
+                if (error) throw error;
+                const tbody = document.querySelector('#contactTable tbody');
+                tbody.innerHTML = '';
+                data.forEach(contact => {
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td>${contact.id_contacto}</td>
+                        <td>${contact.nombre}</td>
+                        <td class="correo-column">${contact.correo} 
+                            <span class="copy-icon" onclick="copyToClipboard('${contact.correo}')">
+                                <i class="fas fa-copy"></i>
+                            </span>
+                        </td>
+                        <td>${contact.dudas || 'N/A'}</td>
+                        <td class="telefono-column">${contact.telefono || 'N/A'} 
+                            <span class="copy-icon" onclick="copyToClipboard('${contact.telefono}')">
+                                <i class="fas fa-copy"></i>
+                            </span>
+                        </td>
+                        <td>${contact.fecha_contacto}</td>
+                        <td>${contact.horario_contacto}</td>
+                        <td>${contact.estatus ? 'Activo' : 'Inactivo'}</td>
+                    `;
+                });
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // Función para llenar la tabla de administradores
+        async function fillAdminTable() {
+            try {
+                const { data, error } = await window.supabase
+                    .from('administrador')
+                    .select('*');
+                if (error) throw error;
+                const tbody = document.querySelector('#adminTable tbody');
+                tbody.innerHTML = '';
+                data.forEach(admin => {
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td>${admin.id_admin}</td>
+                        <td>${admin.nombre_admin}</td>
+                        <td>${admin.usuario_admin}</td>
+                        <td>${'*'.repeat(admin.contrasena_admin.length)}</td>
+                        <td>
+                            <button onclick="deleteAdmin(${admin.id_admin})">Eliminar</button>
+                        </td>
+                    `;
+                });
+            } catch (error) {
+                console.error('Error al cargar administradores:', error);
+            }
+        }
+
+        // Función para abrir el formulario de agregar administrador
+        window.openAddAdminForm = function() {
+            document.getElementById('addAdminModal').style.display = 'block';
+        }
+
+        // Función para cerrar el formulario de agregar administrador
+        window.closeAddAdminForm = function() {
+            document.getElementById('addAdminModal').style.display = 'none';
+        }
+
+        // Función para agregar un nuevo administrador
+        document.getElementById('addAdminForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const nombre_admin = document.getElementById('nombre_admin').value;
+            const usuario_admin = document.getElementById('usuario_admin').value;
+            const contrasena_admin = document.getElementById('contrasena_admin').value;
+
+            try {
+                const { error } = await window.supabase
+                    .from('administrador')
+                    .insert([{ nombre_admin, usuario_admin, contrasena_admin }]);
+                if (error) throw error;
+                alert('Administrador agregado exitosamente.');
+                closeAddAdminForm();
+                fillAdminTable(); // Actualizar la tabla
+            } catch (error) {
+                console.error('Error al agregar administrador:', error);
+            }
+        });
+
+        // Función para eliminar un administrador
+        window.deleteAdmin = async function(id_admin) {
+            try {
+                const { error } = await window.supabase
+                    .from('administrador')
+                    .delete()
+                    .eq('id_admin', id_admin);
+                if (error) throw error;
+                alert('Administrador eliminado exitosamente.');
+                fillAdminTable(); // Actualizar la tabla
+            } catch (error) {
+                console.error('Error al eliminar administrador:', error);
+            }
+        }
+
+        // Inicializar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', () => {
+            fillContactTable();
+            fillAdminTable();
+        });
+    </script>
 </body>
 </html>
