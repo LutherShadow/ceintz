@@ -15,44 +15,332 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/CEINTZusu.css">
     <style>
-        .copy-icon {
-            cursor: pointer;
-            margin-left: 5px;
-            font-size: 14px;
-            color: #007bff;
-        }
-        .copy-icon:hover {
-            color: #0056b3;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        .modal-content {
-            background-color: #fff;
-            margin: 10% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 50%;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+/* Estilos globales */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../img/fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Barra lateral derecha */
+.right-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: sticky;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.right-container button {
+    background: linear-gradient(to right, #007BFF, #ff0000);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.right-container button:hover {
+    background: linear-gradient(to right, #0056b3, #b30000);
+    transform: scale(1.05);
+}
+
+/* Contenido principal */
+.content-container {
+    flex-grow: 1;
+    margin-right: 20px;
+    max-width: 80%;
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-container, .table-container {
+    display: none;
+    background: linear-gradient(to right, #87CEEB, #ffb3b3);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+    font-weight: 600;
+}
+
+td {
+    background-color: #fff;
+    color: #333;
+}
+
+button {
+    padding: 8px 16px;
+    background: linear-gradient(to right, #007BFF, #ff0000);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: linear-gradient(to right, #0056b3, #b30000);
+    transform: scale(1.05);
+}
+
+/* Icono de copiar */
+.copy-icon {
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 14px;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.copy-icon:hover {
+    color: #0056b3;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeInModal 0.5s ease-in-out;
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 50%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideUpModal 0.5s ease-in-out;
+}
+
+@keyframes slideUpModal {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Formulario dentro del modal */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    color: #007BFF;
+    font-weight: 500;
+}
+
+input {
+    border: 1px solid #007BFF;
+    padding: 8px;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #ff0000;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+/* Gráficos */
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.chart-container canvas {
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .right-container {
+        position: static;
+        width: 100%;
+        text-align: center;
+    }
+
+    .right-container button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .content-container {
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .form-container, .table-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .chart-container {
+        width: 100%;
+    }
+
+    .chart-container canvas {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+
+    .right-container button {
+        font-size: 14px;
+    }
+
+    .form-container, .table-container {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
     </style>
     <!-- Supabase -->
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
