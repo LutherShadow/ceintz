@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="ceintz.css"> <!-- Nuevo archivo CSS -->
-    <style>
-        /* Estilos generales */
+   <style>
+        /* Estilos generales encapsulados */
         :root {
-             --primary-color: #063883;
+            --primary-color: #063883;
             --secondary-color: #ff0000;
             --text-color: #333;
             --bg-color: #fff;
@@ -19,17 +19,18 @@
             --hover-bg-color: rgba(28, 7, 185, 0.8);
             --transition-speed: 0.3s;
         }
-          .body {
-            background-image: url('./Fondos_videos/dji_fly_20240606_133206_73_1717702454489_pano_optimized-min.png'); /* Ruta de tu imagen de fondo */
-            background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
-            background-position: center; /* Centra la imagen */
-            background-repeat: no-repeat; /* Evita que la imagen se repita */
-            background-attachment: fixed; /* Fija la imagen para que no se desplace con el scroll */
+
+        body {
+            background-image: url('./Fondos_videos/dji_fly_20240606_133206_73_1717702454489_pano_optimized-min.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
         }
 
-
         /* Header */
-        .header {
+        .ceintz-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -38,37 +39,30 @@
             flex-wrap: wrap;
         }
 
-        .logo-container {
+        .ceintz-logo-container {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .logo-container img {
+        .ceintz-logo-container img {
             max-height: 100px;
             margin-right: 1rem;
         }
 
         @media (max-width: 768px) {
-            .logo-container img:not(:first-child) {
+            .ceintz-logo-container img:not(:first-child) {
                 display: none;
             }
         }
 
-        /* Icono de Admin */
-        .mi-icono {
-            font-size: 2rem;
-            color: var(--primary-color);
-            padding: 10px;
-        }
-
         /* Navbar */
-        nav {
+        .ceintz-nav {
             width: 100%;
             background-color: var(--primary-color);
         }
 
-        .menu {
+        .ceintz-menu {
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -77,11 +71,11 @@
             flex-wrap: wrap;
         }
 
-        .menu > li {
+        .ceintz-menu > li {
             position: relative;
         }
 
-        .menu > li > a {
+        .ceintz-menu > li > a {
             color: var(--bg-color);
             padding: 1rem;
             text-decoration: none;
@@ -91,16 +85,11 @@
             font-size: 0.9rem;
         }
 
-        .menu > li > a:hover {
+        .ceintz-menu > li > a:hover {
             background-color: var(--hover-bg-color);
         }
 
-        .menu > li:hover > a i.ri-arrow-down-s-line {
-            transform: rotate(180deg);
-            transition: transform var(--transition-speed);
-        }
-
-        .submenu {
+        .ceintz-submenu {
             display: none;
             position: absolute;
             background-color: var(--primary-color);
@@ -112,7 +101,7 @@
             z-index: 1000;
         }
 
-        .submenu a {
+        .ceintz-submenu a {
             color: var(--bg-color);
             padding: 0.75rem 1rem;
             text-decoration: none;
@@ -120,249 +109,150 @@
             font-size: 0.85rem;
         }
 
-        .submenu a:hover {
+        .ceintz-submenu a:hover {
             background-color: var(--hover-bg-color);
         }
 
-        .menu li:hover > .submenu {
+        .ceintz-menu li:hover > .ceintz-submenu {
             display: block;
         }
 
-        .nav__toggle {
+        .ceintz-nav__toggle {
             display: none;
         }
 
         /* Main content */
-        main {
+        .ceintz-main {
             max-width: 1200px;
             margin: 2rem auto;
             padding: 2rem;
         }
 
-        .container {
+        .ceintz-container {
             display: flex;
             align-items: center;
             gap: 2rem;
             justify-content: center;
         }
 
-        .mandala-img {
-            border-radius: 0%;
-            box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.3);
-            width: 650px;
-            height: auto;
-            animation: fadeIn 3s ease-in-out;
-        }
-
-        .texto-cuadro {
+        .ceintz-texto-cuadro {
             width: 600px;
             padding: 1.5rem;
             border: 1px solid var(--primary-color);
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-            animation: slideIn 1s ease-in-out;
+            background-color: #f0f0f0; /* Fondo gris claro */
+            border-radius: 10px;
         }
 
-        h1 {
-            color: var(--primary-color);
+        .ceintz-h1 {
+            color: white; /* Color blanco */
             font-size: 2.5em;
             text-align: center;
             margin-bottom: 2em;
+            font-weight: bold; /* Letras gruesas */
         }
 
-        /* Animaciones */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+        /* Carrusel */
+        .ceintz-carrusel {
+            width: 100%;
+            overflow: hidden;
         }
 
-        @keyframes slideIn {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(0);
-            }
+        .ceintz-carrusel .carousel-item img {
+            max-width: 80%;
+            max-height: 400px;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 0 auto;
         }
 
+        /* Footer */
+        footer {
+            background-image: url('./img/footerLM.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--bg-color);
+            padding: 2em;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--bg-color);
+            text-decoration: none;
+            transition: color var(--transition-speed), transform var(--transition-speed);
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social-icons a {
+            font-size: 1.5rem;
+            color: var(--bg-color);
+        }
+
+        footer p, footer a {
+            color: #ffffff;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .container {
+            .ceintz-container {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .mandala-img {
-                width: 100%;
-                height: auto;
-                max-width: 300px;
-            }
-
-            .texto-cuadro {
-                margin: 0;
-                padding: 1rem;
+            .ceintz-texto-cuadro {
                 width: 100%;
             }
-        }
 
-        /* Footer */
-           footer {
-   background-image: url('./img/footerLM.png');
-   background-size: cover;
-   background-position: center;
-   color: var(--bg-color);
-   padding: 2em;
-   margin-top: 2rem;
-}
-
-footer a {
-   color: var(--bg-color);
-   text-decoration: none;
-   transition: color var(--transition-speed), transform var(--transition-speed);
-}
-
-footer a:hover {
-   text-decoration: underline;
-   transform: scale(1.1);
-}
-
-.footer-content {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: flex-start;
-   align-items: flex-start;
-   gap: 2rem;
-}
-
-.footer-section {
-   flex: 1;
-   min-width: 200px;
-}
-
-.footer-social-icons {
-   display: flex;
-   gap: 1rem;
-   margin-top: 1rem;
-}
-
-.footer-social-icons a {
-   font-size: 1.5rem;
-   color: var(--bg-color);
-}
-
-footer p, footer a {
-   color: #ffffff;
-}
-
-        #dark-mode-toggle {
-            background-color: transparent;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        body.dark-mode {
-            --primary-color: #ff0000;
-            --secondary-color: #840707;
-            --text-color: #333;
-            --bg-color: #333;
-        }
-
-        @media (max-width: 768px) {
-            .menu {
+            .ceintz-menu {
                 flex-direction: column;
                 display: none;
             }
 
-            .nav__toggle {
+            .ceintz-nav__toggle {
                 display: block;
                 font-size: 2rem;
                 cursor: pointer;
             }
 
-            .menu.show {
+            .ceintz-menu.show {
                 display: flex;
             }
 
-            .submenu {
+            .ceintz-submenu {
                 position: static;
                 width: 100%;
             }
 
-            .submenu a {
+            .ceintz-submenu a {
                 padding-left: 2rem;
             }
-
-            .footer-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .footer-section {
-                width: 100%;
-                text-align: left;
-            }
-
-            footer p {
-                text-align: left;
-            }
         }
-
-        /* Estilos específicos para el carrusel */
-        .carrusel-ceintz .carousel {
-            width: 100%;
-        }
-
-        .carrusel-ceintz .carousel img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        /* Estilos específicos para la animación de círculos */
-        .animacion-circulos .circle-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-            height: 150px;
-            margin: 20px 0;
-        }
-
-        .animacion-circulos .circle-container {
-            display: flex;
-            gap: 20px;
-            position: absolute;
-            white-space: nowrap;
-        }
-
-        .animacion-circulos .circle {
-            width: 80px;
-            height: 80px;
-            border: 2px solid #007BFF;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: transparent;
-            background-size: cover;
-            background-position: center;
-            animation: moveAndRotate 8s linear infinite;
-        }
-
-        @keyframes moveAndRotate {
-            0% {
-                transform: translateX(-100%) rotate(0deg);
-            }
-            100% {
-                transform: translateX(100%) rotate(0deg);
-            }
-        }
-    </style> <!-- Nuevo archivo CSS -->
+    </style>
 </head>
 <body>
 
@@ -522,7 +412,7 @@ h1 {
     <!-- Header y Navbar (sin cambios) -->
 
     <main>
-        <h1><b>OBJETIVOS ESPECIFICOS</b></h1>
+        <h1 class="ceintz-h1"><b>OBJETIVOS ESPECIFICOS</b></h1>
         <div class="grid-container">
             <div class="image-container">
                 <img src="./FOTOS IA_2025/ARCC.PNG" class="mandala-img" alt="Mandala">
