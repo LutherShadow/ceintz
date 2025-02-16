@@ -420,6 +420,7 @@ footer p, footer a {
     </nav>
 
     <main>
+        <h1 class="ceintz-h1"><b>VALORES</b></h1>
         <div class="container">
             <style>
                 .texto-cuadro {
@@ -429,91 +430,106 @@ footer p, footer a {
             </style>
             
             <div class="texto-cuadro">
-                <h1><b>VALORES</b></h1>
                 <p>El CEINTZ, para definir su actuar y los valores que le rigen, deberá tomar en cuenta las consideraciones éticas que se definen en el Modelo Educativo vigente del Tecnológico Nacional de México.</p>
                 <p>En el TecNM impera la convicción de que es posible construir ambientes, espacios y formas de convivencia humana en los que confluyan, coincidan y armonicen actitudes, acciones y fines colaborativos que favorezcan la construcción del conocimiento, el desarrollo del avance científico, tecnológico y humanístico, y la acción social incluyente.</p>
             </div>
             
             <style>
-                /* Encapsulación de los estilos para la sección */
-                .circle-wrapper {
-                    display:contents;
-                    justify-content: center;
-                    align-items: center;
-                    height: 100vh;
-                    margin: 0;
-                }
-                
-                .circle-container {
-                    position: relative;
-                    width: 500px;
-                    height: 500px;
-                }
+        /* Encapsulación de los estilos para la sección */
+        .circle-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
         
-                .circle {
-                    position: absolute;
-                    width: 100px;
-                    height: 100px;
-                    border: 2px solid #007BFF;
-                    border-radius: 50%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: transparent; /* Eliminado el fondo */
-                    transition: transform 0.5s;
-                    margin: 0; /* Ajuste el margen para que esté alineado con la circunferencia */
-                }
-        
-                .center {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    font-size: 24px;
-                    font-weight: bold;
-                    color: #000;
-                }
-            </style>
+        .circle-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+        }
+
+        .circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #007BFF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            transition: transform 0.5s;
+            margin: 0;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Colores diferentes para cada círculo */
+        #circle1 { background-color: #FF5733; } /* Respeto */
+        #circle2 { background-color: #33FF57; } /* Responsabilidad */
+        #circle3 { background-color: #3357FF; } /* Libertad */
+        #circle4 { background-color: #FF33A1; } /* Confidencialidad */
+        #circle5 { background-color: #A133FF; } /* Honestidad */
+        #circle6 { background-color: #33FFF5; } /* Dignidad */
+        #circle7 { background-color: #F5FF33; } /* Equidad */
+        #circle8 { background-color: #FF3333; } /* Justicia */
+        #circle9 { background-color: #33FF8C; } /* Solidaridad */
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+        }
+    </style>
         </head>
         <body>
             <!-- Contenedor único para encapsular los círculos -->
-            <div class="circle-wrapper">
-                <div class="circle-container">
-                    <div class="center" aria-label="CEINTZ"></div>
-                    <div class="circle" id="circle1" aria-label="Respeto">Respeto</div>
-                    <div class="circle" id="circle2" aria-label="Responsabilidad">Responsabilidad</div>
-                    <div class="circle" id="circle3" aria-label="Libertad">Libertad</div>
-                    <div class="circle" id="circle4" aria-label="Confidencialidad">Confidencialidad</div>
-                    <div class="circle" id="circle5" aria-label="Honestidad">Honestidad</div>
-                    <div class="circle" id="circle6" aria-label="Dignidad">Dignidad</div>
-                    <div class="circle" id="circle7" aria-label="Equidad">Equidad</div>
-                    <div class="circle" id="circle8" aria-label="Justicia">Justicia</div>
-                    <div class="circle" id="circle9" aria-label="Solidaridad">Solidaridad</div>
-                </div>
-            </div>
-        
-            <script>
-                const circles = document.querySelectorAll('.circle');
-                const radius = 180; // Ajustar el radio para mayor separación
-                const centerX = 250; // Centro en el eje X (mitad del contenedor)
-                const centerY = 250; // Centro en el eje Y (mitad del contenedor)
-        
-                let angle = 0; // Ángulo inicial
-        
-                function animateCircles() {
-                    circles.forEach((circle, index) => {
-                        const offsetAngle = index * (2 * Math.PI / circles.length); // Espaciado angular uniforme
-                        const x = centerX + Math.cos(angle + offsetAngle) * radius;
-                        const y = centerY + Math.sin(angle + offsetAngle) * radius;
-                        circle.style.transform = `translate(${x - 50}px, ${y - 50}px)`; // Ajuste para centrar el círculo
-                    });
-                    angle += 0.005; // Velocidad más lenta para la rotación
-                    requestAnimationFrame(animateCircles); // Llama a la función de animación en el siguiente frame
-                }
-        
-                // Iniciar la animación
-                animateCircles();
-            </script>
+           <div class="circle-wrapper">
+        <div class="circle-container">
+            <div class="center" aria-label="CEINTZ"></div>
+            <div class="circle" id="circle1" aria-label="Respeto">Respeto</div>
+            <div class="circle" id="circle2" aria-label="Responsabilidad">Responsabilidad</div>
+            <div class="circle" id="circle3" aria-label="Libertad">Libertad</div>
+            <div class="circle" id="circle4" aria-label="Confidencialidad">Confidencialidad</div>
+            <div class="circle" id="circle5" aria-label="Honestidad">Honestidad</div>
+            <div class="circle" id="circle6" aria-label="Dignidad">Dignidad</div>
+            <div class="circle" id="circle7" aria-label="Equidad">Equidad</div>
+            <div class="circle" id="circle8" aria-label="Justicia">Justicia</div>
+            <div class="circle" id="circle9" aria-label="Solidaridad">Solidaridad</div>
+        </div>
+    </div>
+
+    <script>
+        const circles = document.querySelectorAll('.circle');
+        const radius = 180; // Ajustar el radio para mayor separación
+        const centerX = 250; // Centro en el eje X (mitad del contenedor)
+        const centerY = 250; // Centro en el eje Y (mitad del contenedor)
+
+        let angle = 0; // Ángulo inicial
+
+        function animateCircles() {
+            circles.forEach((circle, index) => {
+                const offsetAngle = index * (2 * Math.PI / circles.length); // Espaciado angular uniforme
+                const x = centerX + Math.cos(angle + offsetAngle) * radius;
+                const y = centerY + Math.sin(angle + offsetAngle) * radius;
+                circle.style.transform = `translate(${x - 50}px, ${y - 50}px)`; // Ajuste para centrar el círculo
+            });
+            angle += 0.005; // Velocidad más lenta para la rotación
+            requestAnimationFrame(animateCircles); // Llama a la función de animación en el siguiente frame
+        }
+
+        // Iniciar la animación
+        animateCircles();
+    </script>
         </body>
         </div>
     </main>
