@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <style>
+        /* Estilos generales encapsulados */
         :root {
             --primary-color: #063883;
             --secondary-color: #ff0000;
@@ -19,12 +20,12 @@
         }
 
         body {
+            background-image: url('./Fondos_videos/dji_fly_20240606_133206_73_1717702454489_pano_optimized-min.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
         /* Header */
@@ -154,10 +155,12 @@
         }
 
         .texto-cuadro {
-            width: 600px;
+             width: 600px;
             padding: 1.5rem;
             border: 1px solid var(--primary-color);
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: #f0f0f0; /* Fondo gris claro */
+            border-radius: 10px;
         }
 
         h1 {
