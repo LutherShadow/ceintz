@@ -49,18 +49,10 @@
             margin-right: 1rem;
         }
 
-        /* Solo mostrar la imagen del gobierno en pantallas pequeñas */
         @media (max-width: 768px) {
             .logo-container img:not(:first-child) {
                 display: none;
             }
-        }
-
-        /* Icono de Admin */
-        .mi-icono {
-            font-size: 2rem;
-            color: var(--primary-color);
-            padding: 10px;
         }
 
         /* Navbar */
@@ -138,107 +130,147 @@
             max-width: 1200px;
             margin: 2rem auto;
             padding: 2rem;
-        }
-
-        .container {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .mandala-img {
-            border-radius: 0%;
-            box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.3);
-            width: 1050px;
-            height: auto;
-        }
-
-        .texto-cuadro {
-             width: 600px;
-            padding: 1.5rem;
-            border: 1px solid var(--primary-color);
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-            background-color: #f0f0f0; /* Fondo gris claro */
-            border-radius: 10px;
+            text-align: center; /* Centrar el contenido */
         }
 
         h1 {
-            color: var(--primary-color);
             font-size: 2.5em;
-            text-align: center;
             margin-bottom: 2em;
         }
 
-        /* Ajustes en pantallas pequeñas */
+        h1 b {
+            color: white; /* Texto "CEINTZ" en blanco */
+        }
+
+        .organigrama-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            justify-items: center;
+            padding: 20px;
+        }
+
+        .box {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+        }
+
+        .title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .name {
+            font-size: 1.1rem;
+        }
+
+        .sub-level {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .sub-boxes {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .sub-box {
+            background-color: var(--hover-bg-color);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            width: 100px;
+            text-align: center;
+        }
+
+        .role {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: lighter;
+        }
+
+        .mandala-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
         @media (max-width: 768px) {
-            .container {
+            .sub-level {
+                grid-template-columns: 1fr;
+            }
+
+            .sub-boxes {
                 flex-direction: column;
-                text-align: center;
-            }
-
-            .mandala-img {
-                width: 100%;
-                height: auto;
-                max-width: 300px;  /* Ajusta la imagen a un tamaño más pequeño */
-            }
-
-            .texto-cuadro {
-                margin: 0;
-                padding: 1rem;
-                width: 100%;
+                align-items: center;
             }
         }
 
         /* Footer */
-            footer {
-   background-image: url('./img/footerLM.png');
-   background-size: cover;
-   background-position: center;
-   color: var(--bg-color);
-   padding: 2em;
-   margin-top: 2rem;
-}
+        footer {
+            background-image: url('./img/footerLM.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--bg-color);
+            padding: 2em;
+            margin-top: 2rem;
+        }
 
-footer a {
-   color: var(--bg-color);
-   text-decoration: none;
-   transition: color var(--transition-speed), transform var(--transition-speed);
-}
+        footer a {
+            color: var(--bg-color);
+            text-decoration: none;
+            transition: color var(--transition-speed), transform var(--transition-speed);
+        }
 
-footer a:hover {
-   text-decoration: underline;
-   transform: scale(1.1);
-}
+        footer a:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
 
-.footer-content {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: flex-start;
-   align-items: flex-start;
-   gap: 2rem;
-}
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 2rem;
+        }
 
-.footer-section {
-   flex: 1;
-   min-width: 200px;
-}
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
 
-.footer-social-icons {
-   display: flex;
-   gap: 1rem;
-   margin-top: 1rem;
-}
+        .footer-social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
 
-.footer-social-icons a {
-   font-size: 1.5rem;
-   color: var(--bg-color);
-}
+        .footer-social-icons a {
+            font-size: 1.5rem;
+            color: var(--bg-color);
+        }
 
-footer p, footer a {
-   color: #ffffff;
-}
-
+        footer p, footer a {
+            color: #ffffff;
+        }
 
         #dark-mode-toggle {
             background-color: transparent;
@@ -255,7 +287,6 @@ footer p, footer a {
             --bg-color: #333;
         }
 
-        /* Responsividad */
         @media (max-width: 768px) {
             .menu {
                 flex-direction: column;
@@ -306,7 +337,6 @@ footer p, footer a {
             <img src="./img/Logo-TecNM.png" alt="Logo TecNM" style="width: 280px;">
             <img src="./img/ITSZ1.png" alt="Logo ITSZ" style="width: 90px;">
         </div>
-        
     </header>
 
     <nav>
@@ -339,192 +369,41 @@ footer p, footer a {
         </ul>
     </nav>
 
-    <style>
-        /* General Styles */
-        body {
-          font-family: 'Arial', sans-serif;
-          margin: 0;
-          padding: 0;
-          background-color: #f7f7f7;
-        }
-  
-        h1 {
-          font-size: 2rem;
-        }
-  
-        /* Organigrama Container */
-            .organigrama-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            justify-items: center;
-            padding: 20px;
-            }
-    
-            .box {
-            background-color: #063883;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            }
-    
-            .box:hover {
-            transform: translateY(-5px);
-            }
-    
-            .title {
-            font-weight: bold;
-            margin-bottom: 10px;
-            }
-    
-            .name {
-            font-size: 1.1rem;
-            }
-    
-            .sub-level {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            }
-    
-            .sub-boxes {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 10px;
-            }
-    
-            .sub-box {
-            background-color: #1c07b9;
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            width: 100px;
-            text-align: center;
-            }
-    
-            .role {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: lighter;
-            }
-  
-        /* Modal Styles */
-        .modal {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.5);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          z-index: 10;
-        }
-  
-        .modal-content {
-          background-color: white;
-          padding: 20px;
-          border-radius: 10px;
-          text-align: center;
-          width: 90%;
-          max-width: 500px;
-        }
-  
-        .hidden {
-          display: none;
-        }
-        .mandala-img {
-            width: 120px; /* Tamaño fijo para que sean más grandes */
-            height: 120px; /* Mismo valor que el ancho para que sea un círculo perfecto */
-            border-radius: 50%; /* Hace que la imagen sea redonda */
-            object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
-            display: block; /* Cambia a block para centrar con margin */
-            margin: 0 auto; /* Centra la imagen horizontalmente */
-            transition: transform 0.5s ease, filter 0.5s ease;
-        }
-        
-        .organigrama-container {
-            text-align: center; /* Centra el contenido dentro del contenedor */
-        }
-        
-        .box {
-            display: inline-block; /* Ajusta el comportamiento de los bloques */
-            margin: 10px; /* Espacio entre los bloques */
-            vertical-align: top; /* Alinea los bloques en la parte superior */
-        }
-        
-        .sub-boxes {
-            display: flex;
-            justify-content: center; /* Centra los sub-boxes */
-            gap: 10px; /* Espacio entre los sub-boxes */
-        }
-        
-        .sub-box {
-            text-align: center; /* Centra el texto dentro de los sub-boxes */
-        }
-  
-        .close {
-          font-size: 1.5rem;
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          cursor: pointer;
-        }
-  
-        @media (max-width: 768px) {
-          .sub-level {
-            grid-template-columns: 1fr;
-          }
-  
-          .sub-boxes {
-            flex-direction: column;
-            align-items: center;
-          }
-        }
-      </style>
-     
-       
-    
-    <main class="p-6 flex justify-center">
-        <h1><b>CEINTZ - Organigrama</b></h1>
-<div class="organigrama-container">
-    <div class="box">
-        <div class="title">CEINTZ</div>
-        <img src="./FOTOS IA_2025/DGB.PNG" class="mandala-img" alt="Mandala">
-        <div class="name clickable" data-person="david">David Gómez Bonilla</div>
-    </div>
+    <main>
+        <h1><b>CEINTZ</b> - Organigrama</h1>
+        <div class="organigrama-container">
+            <div class="box">
+                <div class="title">CEINTZ</div>
+                <img src="./FOTOS IA_2025/DGB.PNG" class="mandala-img" alt="Mandala">
+                <div class="name clickable" data-person="david">David Gómez Bonilla</div>
+            </div>
 
-    <div class="sub-level">
-        <div class="box">
-            <div class="title">CONSULTORÍA</div>
-            <img src="./FOTOS IA_2025/LMI.PNG" class="mandala-img" alt="Mandala">
-            <div class="name clickable" data-person="lidia">Lidia Munguía Inés</div>
-            <div class="sub-boxes">
-                <div class="sub-box">Gestión<br><span class="role">Academia</span></div>
-                <div class="sub-box">Financiamiento<br><span class="role">Academia</span></div>
-                <div class="sub-box">Capacitación<br><span class="role">Academia</span></div>
+            <div class="sub-level">
+                <div class="box">
+                    <div class="title">CONSULTORÍA</div>
+                    <img src="./FOTOS IA_2025/LMI.PNG" class="mandala-img" alt="Mandala">
+                    <div class="name clickable" data-person="lidia">Lidia Munguía Inés</div>
+                    <div class="sub-boxes">
+                        <div class="sub-box">Gestión<br><span class="role">Academia</span></div>
+                        <div class="sub-box">Financiamiento<br><span class="role">Academia</span></div>
+                        <div class="sub-box">Capacitación<br><span class="role">Academia</span></div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="title">INCUBADORA</div>
+                    <img src="./FOTOS IA_2025/LEHG.PNG" class="mandala-img" alt="Mandala">
+                    <div class="name clickable" data-person="laura">Laura Estefanía Hernández Galindo</div>
+                    <div class="sub-boxes">
+                        <div class="sub-box">Scouting<br><span class="role">Academia</span></div>
+                        <div class="sub-box">Creating<br><span class="role">Academia</span></div>
+                        <div class="sub-box">Tracing<br><span class="role">Academia</span></div>
+                    </div>
+                </div>
             </div>
         </div>
+    </main>
 
-        <div class="box">
-            <div class="title">INCUBADORA</div>
-            <img src="./FOTOS IA_2025/LEHG.PNG" class="mandala-img" alt="Mandala">
-            <div class="name clickable" data-person="laura">Laura Estefanía Hernández Galindo</div>
-            <div class="sub-boxes">
-                <div class="sub-box">Scouting<br><span class="role">Academia</span></div>
-                <div class="sub-box">Creating<br><span class="role">Academia</span></div>
-                <div class="sub-box">Tracing<br><span class="role">Academia</span></div>
-            </div>
-        </div>
-    </div>
-</div>
-      </main>
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -570,6 +449,5 @@ footer p, footer a {
             icon.classList.toggle('fa-moon');
         });
     </script>
-
 </body>
 </html>
