@@ -434,7 +434,7 @@ footer p, footer a {
                 <p>En el TecNM impera la convicción de que es posible construir ambientes, espacios y formas de convivencia humana en los que confluyan, coincidan y armonicen actitudes, acciones y fines colaborativos que favorezcan la construcción del conocimiento, el desarrollo del avance científico, tecnológico y humanístico, y la acción social incluyente.</p>
             </div>
             
-            <style>
+         <style>
         /* Encapsulación de los estilos para la sección */
         .circle-wrapper {
             display: flex;
@@ -454,7 +454,7 @@ footer p, footer a {
             position: absolute;
             width: 100px;
             height: 100px;
-            border: 2px solid #007BFF;
+            border: 2px solid #000;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -466,19 +466,19 @@ footer p, footer a {
             padding: 10px;
             font-size: 12px;
             font-weight: bold;
-            color: white;
+            color: black; /* Texto negro */
         }
 
         /* Colores diferentes para cada círculo */
-        #circle1 { background-color: #FF5733; } /* Respeto */
-        #circle2 { background-color: #33FF57; } /* Responsabilidad */
-        #circle3 { background-color: #3357FF; } /* Libertad */
-        #circle4 { background-color: #FF33A1; } /* Confidencialidad */
-        #circle5 { background-color: #A133FF; } /* Honestidad */
-        #circle6 { background-color: #33FFF5; } /* Dignidad */
-        #circle7 { background-color: #F5FF33; } /* Equidad */
-        #circle8 { background-color: #FF3333; } /* Justicia */
-        #circle9 { background-color: #33FF8C; } /* Solidaridad */
+        #circle1 { background-color: #007BFF; } /* Azul */
+        #circle2 { background-color: #28A745; } /* Verde */
+        #circle3 { background-color: #DC3545; } /* Rojo */
+        #circle4 { background-color: #FFC107; } /* Naranja */
+        #circle5 { background-color: #6F42C1; } /* Morado */
+        #circle6 { background-color: #007BFF; } /* Azul */
+        #circle7 { background-color: #28A745; } /* Verde */
+        #circle8 { background-color: #DC3545; } /* Rojo */
+        #circle9 { background-color: #FFC107; } /* Naranja */
 
         .center {
             position: absolute;
@@ -493,7 +493,7 @@ footer p, footer a {
         </head>
         <body>
             <!-- Contenedor único para encapsular los círculos -->
-           <div class="circle-wrapper">
+    <div class="circle-wrapper">
         <div class="circle-container">
             <div class="center" aria-label="CEINTZ"></div>
             <div class="circle" id="circle1" aria-label="Respeto">Respeto</div>
@@ -513,6 +513,16 @@ footer p, footer a {
         const radius = 180; // Ajustar el radio para mayor separación
         const centerX = 250; // Centro en el eje X (mitad del contenedor)
         const centerY = 250; // Centro en el eje Y (mitad del contenedor)
+
+        // Array de colores para los círculos
+        const colors = ["#007BFF", "#28A745", "#DC3545", "#FFC107", "#6F42C1"];
+        let colorIndex = 0;
+
+        // Asignar colores a los círculos
+        circles.forEach(circle => {
+            circle.style.backgroundColor = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length; // Ciclo de colores
+        });
 
         let angle = 0; // Ángulo inicial
 
