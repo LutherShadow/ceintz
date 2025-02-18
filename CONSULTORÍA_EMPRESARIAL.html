@@ -10,17 +10,17 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="ceintz3.css"> <!-- Nuevo archivo CSS -->
      <style>
-        /* Estilos generales encapsulados */
+               /* Estilos generales encapsulados */
         :root {
             --primary-color: #063883;
             --secondary-color: #ff0000;
-            --text-color: #333;
+            --text-color: #000; /* Cambiado a negro */
             --bg-color: #fff;
             --footer-bg-color: rgb(7, 61, 36);
             --hover-bg-color: rgba(28, 7, 185, 0.8);
             --transition-speed: 0.3s;
         }
-
+        
         body {
             background-image: url('./Fondos_videos/dji_fly_20240606_133206_73_1717702454489_pano_optimized-min.png');
             background-size: cover;
@@ -28,7 +28,7 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             font-family: Arial, sans-serif;
-            color: white;
+            color: var(--text-color); /* Aplicar el color de texto negro */
         }
 
         /* Header */
@@ -137,15 +137,15 @@
             justify-content: center;
         }
 
-        .ceintz-texto-cuadro {
+       .ceintz-texto-cuadro {
             width: 600px;
             padding: 1.5rem;
             border: 1px solid var(--primary-color);
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-            background-color: #f0f0f0; /* Fondo gris claro */
+            background-color: rgba(128, 128, 128, 0.8); /* Fondo gris opaco */
             border-radius: 10px;
+            color: var(--text-color); /* Asegurar que el texto sea negro */
         }
-
         .ceintz-h1 {
             color: white; /* Color blanco */
             font-size: 2.5em;
@@ -156,19 +156,28 @@
       .nav-link {
          color: white !important; /* Cambia el color del texto de las pestañas a blanco */
         }
-        
+    
         /* Estilos para los servicios */
-        .service-description h4,
-        .service-description p {
-            color: white; /* Cambia el color del texto en los servicios a blanco */
+        .service-description {
+            background-color: rgba(128, 128, 128, 0.8); /* Fondo gris opaco */
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            color: var(--text-color); /* Asegurar que el texto sea negro */
         }
         
         /* Estilos para el proceso consultor */
-        .process-step h4,
-        .process-step ul li {
-            color: white; /* Cambia el color del texto en el proceso consultor a blanco */
+        .process-step {
+            background: rgba(128, 128, 128, 0.8); /* Fondo gris opaco */
+            color: var(--text-color); /* Asegurar que el texto sea negro */
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         /* Carrusel */
         .ceintz-carrusel {
             width: 100%;
@@ -184,7 +193,15 @@
             border-radius: 10px;
             margin: 0 auto;
         }
-
+            /* Asegurar que los títulos y párrafos dentro de los cuadros de texto también sean negros */
+            .ceintz-texto-cuadro h3,
+            .ceintz-texto-cuadro p,
+            .service-description h4,
+            .service-description p,
+            .process-step h4,
+            .process-step ul li {
+                color: var(--text-color); /* Asegurar que el texto sea negro */
+            }
         /* Footer */
         footer {
             background-image: url('./img/footerLM.png');
