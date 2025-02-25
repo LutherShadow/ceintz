@@ -466,19 +466,19 @@ footer p, footer a {
             padding: 10px;
             font-size: 12px;
             font-weight: bold;
-            color: white; /* Texto negro */
+            color: black; /* Texto negro */
         }
 
-        /* Colores diferentes para cada círculo */
-        #circle1 { background-color: #007BFF; } /* Azul */
-        #circle2 { background-color: #28A745; } /* Verde */
-        #circle3 { background-color: #DC3545; } /* Rojo */
-        #circle4 { background-color: #FFC107; } /* Naranja */
-        #circle5 { background-color: #6F42C1; } /* Morado */
-        #circle6 { background-color: #007BFF; } /* Azul */
-        #circle7 { background-color: #28A745; } /* Verde */
-        #circle8 { background-color: #DC3545; } /* Rojo */
-        #circle9 { background-color: #FFC107; } /* Naranja */
+        /* Colores naranja y blanco para los círculos */
+        #circle1 { background-color: #FFA500; } /* Naranja */
+        #circle2 { background-color: white; } /* Blanco */
+        #circle3 { background-color: #FFA500; } /* Naranja */
+        #circle4 { background-color: white; } /* Blanco */
+        #circle5 { background-color: #FFA500; } /* Naranja */
+        #circle6 { background-color: white; } /* Blanco */
+        #circle7 { background-color: #FFA500; } /* Naranja */
+        #circle8 { background-color: white; } /* Blanco */
+        #circle9 { background-color: #FFA500; } /* Naranja */
 
         .center {
             position: absolute;
@@ -513,16 +513,6 @@ footer p, footer a {
         const radius = 180; // Ajustar el radio para mayor separación
         const centerX = 250; // Centro en el eje X (mitad del contenedor)
         const centerY = 250; // Centro en el eje Y (mitad del contenedor)
-
-        // Array de colores para los círculos
-        const colors = ["#1471af", "#00078f", "#8f0000", "#870061", "#af0a81"];
-        let colorIndex = 0;
-
-        // Asignar colores a los círculos
-        circles.forEach(circle => {
-            circle.style.backgroundColor = colors[colorIndex];
-            colorIndex = (colorIndex + 1) % colors.length; // Ciclo de colores
-        });
 
         let angle = 0; // Ángulo inicial
 
