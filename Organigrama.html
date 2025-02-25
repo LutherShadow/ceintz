@@ -133,7 +133,6 @@
             text-align: center; /* Centrar el contenido */
         }
 
-      
         .ceintz-h1 {
             color: white; /* Color blanco */
             font-size: 2.5em;
@@ -141,7 +140,6 @@
             margin-bottom: 2em;
             font-weight: bold; /* Letras gruesas */
         }
-
 
         .organigrama-container {
             display: grid;
@@ -213,6 +211,42 @@
             transition: transform 0.5s ease, filter 0.5s ease;
         }
 
+        /* Nueva sección de recuadros azules */
+        .recuadros-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .recuadro {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .recuadro:hover {
+            transform: translateY(-5px);
+        }
+
+        .recuadro img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .recuadro .nombre {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
         @media (max-width: 768px) {
             .sub-level {
                 grid-template-columns: 1fr;
@@ -221,6 +255,10 @@
             .sub-boxes {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .recuadros-container {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -400,6 +438,69 @@
                         <div class="sub-box">Creating<br><span class="role">Academia</span></div>
                         <div class="sub-box">Tracing<br><span class="role">Academia</span></div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Sección de sub-boxes arriba de las 13 imágenes -->
+            <div class="sub-boxes">
+                <div class="sub-box">Scouting<br><span class="role">Academia</span></div>
+                <div class="sub-box">Creating<br><span class="role">Academia</span></div>
+                <div class="sub-box">Tracing<br><span class="role">Academia</span></div>
+            </div>
+
+            <!-- Nueva sección de recuadros azules -->
+            <div class="recuadros-container">
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 1">
+                    <div class="nombre">Nombre 1</div>
+                </div>
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 2">
+                    <div class="nombre">Nombre 2</div>
+                </div>
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 3">
+                    <div class="nombre">Nombre 3</div>
+                </div>
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 4">
+                    <div class="nombre">Nombre 4</div>
+                </div>
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 5">
+                    <div class="nombre">Nombre 5</div>
+                </div>
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 6">
+                    <div class="nombre">Nombre 6</div>
+                </div>
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 7">
+                    <div class="nombre">Nombre 7</div>
+                </div>
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 8">
+                    <div class="nombre">Nombre 8</div>
+                </div>
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 9">
+                    <div class="nombre">Nombre 9</div>
+                </div>
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 10">
+                    <div class="nombre">Nombre 10</div>
+                </div>
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 11">
+                    <div class="nombre">Nombre 11</div>
+                </div>
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 12">
+                    <div class="nombre">Nombre 12</div>
+                </div>
+                <div class="recuadro">
+                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 13">
+                    <div class="nombre">Nombre 13</div>
                 </div>
             </div>
         </div>
