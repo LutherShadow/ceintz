@@ -211,11 +211,12 @@
             transition: transform 0.5s ease, filter 0.5s ease;
         }
 
-        /* Nueva sección de recuadros azules */
+        /* Nueva sección de recuadros azules en horizontal */
         .recuadros-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            display: flex;
+            overflow-x: auto; /* Scroll horizontal */
             gap: 20px;
+            padding: 20px 0;
             margin-top: 40px;
         }
 
@@ -223,11 +224,13 @@
             background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             cursor: pointer;
+            flex: 0 0 auto; /* Evita que los recuadros se estiren */
+            width: 120px; /* Ancho fijo para cada recuadro */
         }
 
         .recuadro:hover {
@@ -235,15 +238,15 @@
         }
 
         .recuadro img {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 10px;
         }
 
         .recuadro .nombre {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: bold;
         }
 
@@ -258,7 +261,11 @@
             }
 
             .recuadros-container {
-                grid-template-columns: repeat(2, 1fr);
+                gap: 10px; /* Menor espacio en móviles */
+            }
+
+            .recuadro {
+                width: 100px; /* Recuadros más pequeños en móviles */
             }
         }
 
@@ -448,7 +455,7 @@
                 <div class="sub-box">Tracing<br><span class="role">Academia</span></div>
             </div>
 
-            <!-- Nueva sección de recuadros azules -->
+            <!-- Nueva sección de recuadros azules en horizontal -->
             <div class="recuadros-container">
                 <div class="recuadro">
                     <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 1">
