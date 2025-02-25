@@ -559,15 +559,16 @@
         </div>
     </div>
 </div>
-                   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
     <!-- Título en blanco -->
     <h3 class="mt-3" style="color: white;">PROCESO CONSULTOR:</h3>
     <style>
         .process-container {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            flex-wrap: nowrap; /* Evitar saltos de línea */
+            gap: 10px; /* Espacio entre elementos */
             padding: 20px;
         }
 
@@ -603,14 +604,11 @@
             font-size: 14px;
         }
 
-        /* Estilos para las imágenes */
+        /* Estilos para las imágenes de flecha */
         .process-image {
-            width: 2.2in; /* Ancho de 2.2 pulgadas */
-            height: 2.5in; /* Alto de 2.5 pulgadas */
-            margin-top: 20px; /* Espacio entre el proceso y la imagen */
-            border-radius: 10px; /* Bordes redondeados */
-            object-fit: cover; /* Ajustar la imagen sin deformarla */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+            width: 50px; /* Ancho más pequeño */
+            height: auto; /* Altura automática para mantener la proporción */
+            margin: 0 10px; /* Espacio entre el proceso y la flecha */
         }
     </style>
     <div class="process-container">
@@ -624,8 +622,8 @@
                 <li>Propuesta</li>
             </ul>
         </div>
-        <!-- Imagen después del proceso 1 -->
-        <img src="./img/flecha.png" alt="Prediagnóstico" class="process-image">
+        <!-- Flecha después del proceso 1 -->
+        <img src="./img/flecha.png" alt="Flecha" class="process-image">
 
         <!-- Proceso 2: Diagnóstico -->
         <div class="process-step">
@@ -637,8 +635,8 @@
                 <li>Firma de contrato</li>
             </ul>
         </div>
-        <!-- Imagen después del proceso 2 -->
-        <img src="./img/flecha.png" alt="Diagnóstico" class="process-image">
+        <!-- Flecha después del proceso 2 -->
+        <img src="./img/flecha.png" alt="Flecha" class="process-image">
 
         <!-- Proceso 3: Desarrollo consultor -->
         <div class="process-step">
@@ -649,8 +647,6 @@
                 <li>Cierre consultor</li>
             </ul>
         </div>
-        <!-- Imagen después del proceso 3 -->
-        <img src="./FOTOS IA_2025/ZZZ(1).png" alt="Desarrollo consultor" class="process-image">
     </div>
 </div>
            
