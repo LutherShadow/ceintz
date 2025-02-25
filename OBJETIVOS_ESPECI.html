@@ -151,12 +151,6 @@
             height: auto;
             display: block;
             border-radius: 10px; /* Bordes redondeados */
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-
-        .image-container:hover .mandala-img {
-            transform: scale(1.1);
-            filter: brightness(0.8);
         }
 
         .texto-cuadro {
@@ -164,18 +158,13 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semi-transparente */
             color: white;
             padding: 1rem;
             text-align: center;
-            opacity: 0; /* Texto oculto por defecto */
             width: 90%;
             border-radius: 10px;
-            transition: opacity 0.3s ease;
-        }
-
-        .image-container:hover .texto-cuadro {
-            opacity: 1; /* Mostrar texto al hacer hover */
+            opacity: 1; /* Texto siempre visible */
         }
 
         .ceintz-h1 {
@@ -324,7 +313,7 @@
         <h1 class="ceintz-h1"><b>OBJETIVOS ESPECIFICOS</b></h1>
         <div class="grid-container">
             <div class="image-container">
-                <img src="./FOTOS IA_2025/ARCC.JPG" class="mandala-img" alt="Mandala">
+                <img src="./FOTOS IA_2025/ARCC.png" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>1</h2>
                     <p>Vincular los programas de emprendedores con empresarios y empresas en el Instituto Tecnológico Superior de Zacapoaxtla.</p>
@@ -332,7 +321,7 @@
             </div>
     
             <div class="image-container">
-                <img src="./FOTOS IA_2025/COT.JPG" class="mandala-img" alt="Mandala">
+                <img src="./FOTOS IA_2025/COT.png" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>2</h2>
                     <p>Promover los servicios ofrecidos por la red de los CEINTZ con grupos u organismos de la sociedad para captar emprendedores externos.</p>
@@ -340,7 +329,7 @@
             </div>
     
             <div class="image-container">
-                <img src="./FOTOS IA_2025/DGB.JPG" class="mandala-img" alt="Mandala">
+                <img src="./FOTOS IA_2025/DGB.png" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>3</h2>
                     <p>Optimizar el servicio y la atención ofrecida a los incubados para favorecer la apertura rápida de empresas.</p>
@@ -348,7 +337,7 @@
             </div>
     
             <div class="image-container">
-                <img src="./FOTOS IA_2025/GMM.JPG" class="mandala-img" alt="Mandala">
+                <img src="./FOTOS IA_2025/GMM.png" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>4</h2>
                     <p>Fortalecer mecanismos de gestión financiera para apoyar a las empresas incubadas.</p>
@@ -356,7 +345,7 @@
             </div>
     
             <div class="image-container">
-                <img src="./FOTOS IA_2025/JFML.JPG" class="mandala-img" alt="Mandala">
+                <img src="./FOTOS IA_2025/JFML.png" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>5</h2>
                     <p>Impulsar el acompañamiento para la promoción y comercialización de los bienes y servicios de las empresas incubadas.</p>
@@ -364,7 +353,7 @@
             </div>
     
             <div class="image-container">
-                <img src="./FOTOS IA_2025/JZC.JPG" class="mandala-img" alt="Mandala">
+                <img src="./FOTOS IA_2025/JZC.png" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>6</h2>
                     <p>Gestionar los recursos económicos para la operación de CEINTZ.</p>
@@ -372,7 +361,7 @@
             </div>
     
             <div class="image-container">
-                <img src="./FOTOS IA_2025/LEHG.JPG" class="mandala-img" alt="Mandala">
+                <img src="./FOTOS IA_2025/LEHG.png" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>7</h2>
                     <p>Generar e incrementar las fuentes de trabajo en la región.</p>
@@ -380,7 +369,7 @@
             </div>
     
             <div class="image-container">
-                <img src="./FOTOS IA_2025/MALC.JPG" class="mandala-img" alt="Mandala">
+                <img src="./FOTOS IA_2025/MALC.png" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>8</h2>
                     <p>Crear redes empresariales, que proporcionen la relación entre empresarios a corto, mediano y largo plazo.</p>
@@ -388,7 +377,7 @@
             </div>
     
             <div class="image-container">
-                <img src="./FOTOS IA_2025/RCH.JPG" class="mandala-img" alt="Mandala">
+                <img src="./FOTOS IA_2025/RCH.png" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>9</h2>
                     <p>Generar condiciones que propicien la alianza estratégica entre empresas e instituciones financieras.</p>
@@ -396,7 +385,7 @@
             </div>
     
             <div class="image-container">
-                <img src="./FOTOS IA_2025/SGL.JPG" class="mandala-img" alt="Mandala">
+                <img src="./FOTOS IA_2025/SGL.png" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>10</h2>
                     <p>Ofrecer a la comunidad tecnológica y público en general,un modelo de desarrollo de empresas que facilite la implantación, consolidación y mejora de las mismas.</p>
@@ -404,7 +393,7 @@
             </div>
     
             <div class="image-container">
-                <img src="./FOTOS IA_2025/VRT.JPG" class="mandala-img" alt="Mandala">
+                <img src="./FOTOS IA_2025/VRT.png" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>11</h2>
                     <p>Propiciar la transferencia de tecnología, comercialización de la misma y propiedad intelectual.</p>
@@ -412,7 +401,7 @@
             </div>
     
             <div class="image-container">
-                <img src="./FOTOS IA_2025/XRM.JPG" class="mandala-img" alt="Mandala">
+                <img src="./FOTOS IA_2025/XRM.png" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>12</h2>
                     <p>Brindar servicios de consultoría.</p>
@@ -457,13 +446,6 @@
         const navMenu = document.getElementById('nav-menu');
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('show');
-        });
-
-        document.getElementById('dark-mode-toggle').addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-            const icon = document.querySelector('#dark-mode-toggle i');
-            icon.classList.toggle('fa-sun');
-            icon.classList.toggle('fa-moon');
         });
     </script>
 </body>
