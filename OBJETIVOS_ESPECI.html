@@ -155,16 +155,20 @@
 
         .texto-cuadro {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%; /* Ocupa el 100% del ancho de la imagen */
+            height: 100%; /* Ocupa el 100% del alto de la imagen */
             background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semi-transparente */
             color: white;
-            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra verticalmente */
+            align-items: center; /* Centra horizontalmente */
             text-align: center;
-            width: 90%;
+            padding: 1rem; /* Espaciado interno */
+            box-sizing: border-box; /* Incluye el padding en el tamaño total */
             border-radius: 10px;
-            opacity: 1; /* Texto siempre visible */
         }
 
         .ceintz-h1 {
