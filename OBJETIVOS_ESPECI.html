@@ -296,122 +296,136 @@
     </ul>
 </nav>
     <style>
-     /* Estilos anteriores... */
+        /* Estilos generales */
+        :root {
+            --primary-color: #4CAF50; /* Color primario */
+        }
 
-/* Main content */
-main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 2rem;
-    text-align: center;
-}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas por fila */
-    gap: 1.5rem; /* Espacio entre los elementos */
-    max-width: 1200px; /* Limitar el ancho máximo */
-    margin: 0 auto; /* Centrar el contenedor */
-}
+        /* Main content */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
 
-.image-container {
-    position: relative;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fadeInUp 1s ease forwards;
-    animation-delay: 0.5s;
-}
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columnas por fila */
+            gap: 1.5rem; /* Espacio entre los elementos */
+            max-width: 1200px; /* Limitar el ancho máximo */
+            margin: 0 auto; /* Centrar el contenedor */
+        }
 
-.mandala-img {
-    width: 140%; /* Aumenté el ancho */
-    height: auto;
-    transition: transform 0.5s ease, filter 0.5s ease;
-    display: block;
-    border-radius: 10px; /* Bordes redondeados */
-}
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.5s;
+        }
 
-.texto-cuadro {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 1.8rem; /* Aumenté el padding */
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    width: 95%; /* Aumenté el ancho */
-    border-radius: 10px;
-}
+        .mandala-img {
+            width: 140%; /* Aumenté el ancho */
+            height: auto;
+            transition: transform 0.5s ease, filter 0.5s ease;
+            display: block;
+            border-radius: 10px; /* Bordes redondeados */
+        }
 
-.image-container:hover .mandala-img {
-    transform: scale(1.2);
-    filter: brightness(0.7);
-}
+        .texto-cuadro {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+            color: white;
+            padding: 1.8rem; /* Aumenté el padding */
+            text-align: center;
+            opacity: 1; /* Texto siempre visible */
+            width: 95%; /* Aumenté el ancho */
+            border-radius: 10px;
+            transition: none; /* Elimina la transición */
+        }
 
-.image-container:hover .texto-cuadro {
-    opacity: 1;
-}
+        .image-container:hover .mandala-img {
+            transform: scale(1.2);
+            filter: brightness(0.7);
+        }
 
-h1 {
-    color: var(--primary-color);
-    font-size: 2.5em;
-    margin-bottom: 2em;
-    animation: fadeIn 1s ease-in-out;
-}
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 2em;
+            animation: fadeIn 1s ease-in-out;
+        }
 
-/* Animación de entrada */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        /* Animación de entrada */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-/* Responsividad */
-@media (max-width: 1200px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
-    }
-}
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
 
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
-    }
+        /* Responsividad */
+        @media (max-width: 1200px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
+            }
+        }
 
-    .texto-cuadro {
-        font-size: 1em; /* Ajusté el tamaño del texto */
-        padding: 1.3rem; /* Ajusté el padding */
-        width: 90%; /* Más ancho en móviles */
-    }
-}
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
+            }
 
-@media (max-width: 480px) {
-    .grid-container {
-        grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
-    }
+            .texto-cuadro {
+                font-size: 1em; /* Ajusté el tamaño del texto */
+                padding: 1.3rem; /* Ajusté el padding */
+                width: 90%; /* Más ancho en móviles */
+            }
+        }
 
-    .texto-cuadro {
-        font-size: 0.95em;
-        padding: 1.2rem;
-        width: 85%;
-    }
-}
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+            }
 
+            .texto-cuadro {
+                font-size: 0.95em;
+                padding: 1.2rem;
+                width: 85%;
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- Header y Navbar (sin cambios) -->
 
-    <main>
+     <main>
         <h1 class="ceintz-h1"><b>OBJETIVOS ESPECIFICOS</b></h1>
         <div class="grid-container">
             <div class="image-container">
@@ -421,7 +435,7 @@ h1 {
                     <p>Vincular los programas de emprendedores con empresarios y empresas en el Instituto Tecnológico Superior de Zacapoaxtla.</p>
                 </div> 
             </div>
-    
+
             <div class="image-container">
                 <img src="./FOTOS IA_2025/COT.PNG" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
@@ -429,7 +443,7 @@ h1 {
                     <p>Promover los servicios ofrecidos por la red de los CEINTZ con grupos u organismos de la sociedad para captar emprendedores externos.</p>
                 </div> 
             </div>
-    
+
             <div class="image-container">
                 <img src="./FOTOS IA_2025/DGB.PNG" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
@@ -437,7 +451,7 @@ h1 {
                     <p>Optimizar el servicio y la atención ofrecida a los incubados para favorecer la apertura rápida de empresas.</p>
                 </div> 
             </div>
-    
+
             <div class="image-container">
                 <img src="./FOTOS IA_2025/GMM.PNG" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
@@ -445,7 +459,7 @@ h1 {
                     <p>Fortalecer mecanismos de gestión financiera para apoyar a las empresas incubadas.</p>
                 </div> 
             </div>
-    
+
             <div class="image-container">
                 <img src="./FOTOS IA_2025/JFML.PNG" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
@@ -453,7 +467,7 @@ h1 {
                     <p>Impulsar el acompañamiento para la promoción y comercialización de los bienes y servicios de las empresas incubadas.</p>
                 </div> 
             </div>
-    
+
             <div class="image-container">
                 <img src="./FOTOS IA_2025/JZC.PNG" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
@@ -461,7 +475,7 @@ h1 {
                     <p>Gestionar los recursos económicos para la operación de CEINTZ.</p>
                 </div> 
             </div>
-    
+
             <div class="image-container">
                 <img src="./FOTOS IA_2025/LEHG.PNG" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
@@ -469,7 +483,7 @@ h1 {
                     <p>Generar e incrementar las fuentes de trabajo en la región.</p>
                 </div> 
             </div>
-    
+
             <div class="image-container">
                 <img src="./FOTOS IA_2025/MALC.PNG" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
@@ -477,7 +491,7 @@ h1 {
                     <p>Crear redes empresariales, que proporcionen la relación entre empresarios a corto, mediano y largo plazo.</p>
                 </div> 
             </div>
-    
+
             <div class="image-container">
                 <img src="./FOTOS IA_2025/RCH.PNG" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
@@ -485,15 +499,15 @@ h1 {
                     <p>Generar condiciones que propicien la alianza estratégica entre empresas e instituciones financieras.</p>
                 </div> 
             </div>
-    
+
             <div class="image-container">
                 <img src="./FOTOS IA_2025/SGL.PNG" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
                     <h2>10</h2>
-                    <p>Ofrecer a la comunidad tecnológica y público en general,un modelo de desarrollo de empresas que facilite la implantación, consolidación y mejora de las mismas.</p>
+                    <p>Ofrecer a la comunidad tecnológica y público en general, un modelo de desarrollo de empresas que facilite la implantación, consolidación y mejora de las mismas.</p>
                 </div> 
             </div>
-    
+
             <div class="image-container">
                 <img src="./FOTOS IA_2025/VRT.PNG" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
@@ -501,7 +515,7 @@ h1 {
                     <p>Propiciar la transferencia de tecnología, comercialización de la misma y propiedad intelectual.</p>
                 </div> 
             </div>
-    
+
             <div class="image-container">
                 <img src="./FOTOS IA_2025/XRM.PNG" class="mandala-img" alt="Mandala">
                 <div class="texto-cuadro">
