@@ -315,6 +315,329 @@
 
     
     <main class="ceintz-main">
+        <h1 class="ceintz-h1"><b>OBJETIVOS ESPECIF<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingeniería en Administración</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        /* Variables globales en :root */
+        :root {
+            --primary-color: #063883;
+            --secondary-color: #ff0000;
+            --text-color: #333;
+            --bg-color: #fff;
+            --footer-bg-color: rgb(7, 61, 36);
+            --hover-bg-color: rgba(28, 7, 185, 0.8);
+            --transition-speed: 0.3s;
+            --ceintz-texto-cuadro-bg: #f0f0f0; /* Fondo gris claro para el cuadro de texto */
+            --ceintz-h1-color: white; /* Color blanco para h1 */
+            --ceintz-h1-font-weight: bold; /* Letras gruesas para h1 */
+        }
+
+        /* Estilos generales */
+        body {
+            background-image: url('./Fondos_videos/dji_fly_20240606_133206_73_1717702454489_pano_optimized-min.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header */
+        .ceintz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+            background-color: var(--bg-color);
+            flex-wrap: wrap;
+        }
+
+        .ceintz-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ceintz-logo-container img {
+            max-height: 100px;
+            margin-right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .ceintz-logo-container img:not(:first-child) {
+                display: none;
+            }
+        }
+
+        /* Navbar */
+        .ceintz-nav {
+            width: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .ceintz-menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .ceintz-menu > li {
+            position: relative;
+        }
+
+        .ceintz-menu > li > a {
+            color: var(--bg-color);
+            padding: 1rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .ceintz-menu > li > a:hover {
+            background-color: var(--hover-bg-color);
+        }
+
+        .ceintz-submenu {
+            display: none;
+            position: absolute;
+            background-color: var(--primary-color);
+            list-style-type: none;
+            padding: 0;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            z-index: 1000;
+        }
+
+        .ceintz-submenu a {
+            color: var(--bg-color);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.85rem;
+        }
+
+        .ceintz-submenu a:hover {
+            background-color: var(--hover-bg-color);
+        }
+
+        .ceintz-menu li:hover > .ceintz-submenu {
+            display: block;
+        }
+
+        .ceintz-nav__toggle {
+            display: none;
+        }
+
+        /* Main content */
+        .ceintz-main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columnas por fila */
+            gap: 1.5rem; /* Espacio entre los elementos */
+            max-width: 1200px; /* Limitar el ancho máximo */
+            margin: 0 auto; /* Centrar el contenedor */
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .mandala-img {
+            width: 100%; /* Ajusta el ancho */
+            height: auto;
+            display: block;
+            border-radius: 10px; /* Bordes redondeados */
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .image-container:hover .mandala-img {
+            transform: scale(1.1);
+            filter: brightness(0.8);
+        }
+
+        .texto-cuadro {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            opacity: 0; /* Texto oculto por defecto */
+            width: 90%;
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .texto-cuadro {
+            opacity: 1; /* Mostrar texto al hacer hover */
+        }
+
+        .ceintz-h1 {
+            color: var(--ceintz-h1-color);
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 2em;
+            font-weight: var(--ceintz-h1-font-weight);
+        }
+
+        /* Footer */
+        footer {
+            background-image: url('./img/footerLM.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--bg-color);
+            padding: 2em;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--bg-color);
+            text-decoration: none;
+            transition: color var(--transition-speed), transform var(--transition-speed);
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social-icons a {
+            font-size: 1.5rem;
+            color: var(--bg-color);
+        }
+
+        footer p, footer a {
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
+            }
+
+            .ceintz-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .ceintz-nav__toggle {
+                display: block;
+                font-size: 2rem;
+                cursor: pointer;
+            }
+
+            .ceintz-menu.show {
+                display: flex;
+            }
+
+            .ceintz-submenu {
+                position: static;
+                width: 100%;
+            }
+
+            .ceintz-submenu a {
+                padding-left: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="ceintz-header">
+        <div class="ceintz-logo-container">
+            <img src="./img/gob_mx.png" alt="Logo Gobierno" style="width: 250px;">
+            <img src="./img/educacion_logo.png" alt="Logo Educación" style="width: 250px;">
+            <img src="./img/Logo-TecNM.png" alt="Logo TecNM" style="width: 280px;">
+            <img src="./img/ITSZ1.png" alt="Logo ITSZ" style="width: 90px;">
+        </div>
+    </header>
+
+    <nav class="ceintz-nav">
+        <div class="ceintz-nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line"></i>
+        </div>
+        <ul class="ceintz-menu" id="nav-menu">
+            <li><a href="./INICIO.html"><i class="ri-home-line"></i> INICIO</a></li>
+            <li>
+                <a href="#"><i class="ri-file-list-line"></i> OBJETIVOS <i class="ri-arrow-down-s-line"></i></a>
+                <ul class="ceintz-submenu">
+                    <li><a href="./OBJETIVO_GENERAL.html">GENERAL</a></li>
+                    <li><a href="./OBJETIVOS_ESPECI.html">ESPECIFICOS</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="ri-group-line"></i> MISIÓN <i class="ri-arrow-down-s-line"></i></a>
+                <ul class="ceintz-submenu">
+                    <li><a href="./MISIÓN.html">MISIÓN</a></li>
+                    <li><a href="./VISIÓN.html">VISIÓN</a></li>
+                    <li><a href="./VALORES.html">VALORES</a></li>
+                </ul>
+            </li>
+            <li><a href="./JUSTIFICACIÓN.html"><i class="ri-contacts-line"></i> JUSTIFICACIÓN</a></li>
+            <li><a href="./MARCO_LEGAL.html"><i class="ri-file-paper-line"></i> MARCO LEGAL</a></li>
+            <li><a href="./Organigrama.html"><i class="ri-organization-chart-line"></i> ORGANIGRAMA</a></li>
+            <li><a href="./MODELO.html"><i class="ri-file-chart-line"></i> MODELO</a></li>
+            <li><a href="./CONSULTORÍA_EMPRESARIAL.html"><i class="ri-file-paper-line"></i> C.EMPRESARIAL</a></li>
+            <li><a href="./FORMULARIO_CEINTZ.html"><i class="ri-mail-line"></i> CONTACTANOS</a></li>
+        </ul>
+    </nav>
+
+    <main class="ceintz-main">
         <h1 class="ceintz-h1"><b>OBJETIVOS ESPECIFICOS</b></h1>
         <div class="grid-container">
             <div class="image-container">
