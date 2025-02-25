@@ -214,9 +214,9 @@
         /* Nueva sección de recuadros azules en horizontal */
         .recuadros-container {
             display: flex;
-            overflow-x: auto; /* Scroll horizontal */
+            flex-wrap: wrap; /* Ajuste automático al ancho de la pantalla */
             gap: 20px;
-            padding: 20px 0;
+            justify-content: center; /* Centrar las imágenes */
             margin-top: 40px;
         }
 
@@ -229,8 +229,8 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             cursor: pointer;
-            flex: 0 0 auto; /* Evita que los recuadros se estiren */
-            width: 120px; /* Ancho fijo para cada recuadro */
+            flex: 1 1 150px; /* Ajuste flexible para ocupar el espacio disponible */
+            max-width: 150px; /* Ancho máximo para cada recuadro */
         }
 
         .recuadro:hover {
@@ -238,8 +238,8 @@
         }
 
         .recuadro img {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 10px;
@@ -265,7 +265,8 @@
             }
 
             .recuadro {
-                width: 100px; /* Recuadros más pequeños en móviles */
+                flex: 1 1 100px; /* Recuadros más pequeños en móviles */
+                max-width: 100px;
             }
         }
 
@@ -448,15 +449,16 @@
                 </div>
             </div>
 
-            <!-- Sección de sub-boxes arriba de las 13 imágenes -->
-            <div class="sub-boxes">
-                <div class="sub-box">Scouting<br><span class="role">Academia</span></div>
-                <div class="sub-box">Creating<br><span class="role">Academia</span></div>
-                <div class="sub-box">Tracing<br><span class="role">Academia</span></div>
-            </div>
-
-            <!-- Nueva sección de recuadros azules en horizontal -->
+            <!-- Sección de sub-boxes y recuadros azules -->
             <div class="recuadros-container">
+                <!-- Sub-boxes -->
+                <div class="sub-boxes">
+                    <div class="sub-box">Scouting<br><span class="role">Academia</span></div>
+                    <div class="sub-box">Creating<br><span class="role">Academia</span></div>
+                    <div class="sub-box">Tracing<br><span class="role">Academia</span></div>
+                </div>
+
+                <!-- Recuadros con imágenes -->
                 <div class="recuadro">
                     <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 1">
                     <div class="nombre">Nombre 1</div>
@@ -504,10 +506,6 @@
                 <div class="recuadro">
                     <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 12">
                     <div class="nombre">Nombre 12</div>
-                </div>
-                <div class="recuadro">
-                    <img src="./FOTOS IA_2025/DGB.PNG" alt="Foto 13">
-                    <div class="nombre">Nombre 13</div>
                 </div>
             </div>
         </div>
