@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CENTRO DE EMPRENDIMIENTO, INNOVACIÓN Y NEGOCIOS</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
-        <link rel="stylesheet" href="ceintz.css"> <!-- Nuevo archivo CSS -->
-       
-        <style>
-        /* Estilos generales encapsulados */
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingeniería en Administración</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
         :root {
             --primary-color: #063883;
             --secondary-color: #ff0000;
@@ -22,16 +19,16 @@
         }
 
         body {
-            background-image: url('./Fondos_videos/dji_fly_20240606_133206_73_1717702454489_pano_optimized-min.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
         /* Header */
-        .ceintz-header {
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -40,30 +37,38 @@
             flex-wrap: wrap;
         }
 
-        .ceintz-logo-container {
+        .logo-container {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .ceintz-logo-container img {
+        .logo-container img {
             max-height: 100px;
             margin-right: 1rem;
         }
 
+        /* Solo mostrar la imagen del gobierno en pantallas pequeñas */
         @media (max-width: 768px) {
-            .ceintz-logo-container img:not(:first-child) {
+            .logo-container img:not(:first-child) {
                 display: none;
             }
         }
 
+        /* Icono de Admin */
+        .mi-icono {
+            font-size: 2rem;
+            color: var(--primary-color);
+            padding: 10px;
+        }
+
         /* Navbar */
-        .ceintz-nav {
+        nav {
             width: 100%;
             background-color: var(--primary-color);
         }
 
-        .ceintz-menu {
+        .menu {
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -72,11 +77,11 @@
             flex-wrap: wrap;
         }
 
-        .ceintz-menu > li {
+        .menu > li {
             position: relative;
         }
 
-        .ceintz-menu > li > a {
+        .menu > li > a {
             color: var(--bg-color);
             padding: 1rem;
             text-decoration: none;
@@ -86,11 +91,16 @@
             font-size: 0.9rem;
         }
 
-        .ceintz-menu > li > a:hover {
+        .menu > li > a:hover {
             background-color: var(--hover-bg-color);
         }
 
-        .ceintz-submenu {
+        .menu > li:hover > a i.ri-arrow-down-s-line {
+            transform: rotate(180deg);
+            transition: transform var(--transition-speed);
+        }
+
+        .submenu {
             display: none;
             position: absolute;
             background-color: var(--primary-color);
@@ -102,7 +112,7 @@
             z-index: 1000;
         }
 
-        .ceintz-submenu a {
+        .submenu a {
             color: var(--bg-color);
             padding: 0.75rem 1rem;
             text-decoration: none;
@@ -110,68 +120,76 @@
             font-size: 0.85rem;
         }
 
-        .ceintz-submenu a:hover {
+        .submenu a:hover {
             background-color: var(--hover-bg-color);
         }
 
-        .ceintz-menu li:hover > .ceintz-submenu {
+        .menu li:hover > .submenu {
             display: block;
         }
 
-        .ceintz-nav__toggle {
+        .nav__toggle {
             display: none;
         }
 
         /* Main content */
-        .ceintz-main {
+        main {
             max-width: 1200px;
             margin: 2rem auto;
             padding: 2rem;
         }
 
-        .ceintz-container {
+        .container {
             display: flex;
             align-items: center;
             gap: 2rem;
             justify-content: center;
         }
 
-        .ceintz-texto-cuadro {
+        .mandala-img {
+            border-radius: 0%;
+            box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.3);
+            width: 650px;
+            height: auto;
+        }
+
+        .texto-cuadro {
             width: 600px;
             padding: 1.5rem;
             border: 1px solid var(--primary-color);
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-            background-color: #f0f0f0; /* Fondo gris claro */
-            border-radius: 10px;
         }
 
-        .ceintz-h1 {
-            color: white; /* Color blanco */
+        h1 {
+            color: var(--primary-color);
             font-size: 2.5em;
             text-align: center;
             margin-bottom: 2em;
-            font-weight: bold; /* Letras gruesas */
         }
 
-        /* Carrusel */
-        .ceintz-carrusel {
-            width: 100%;
-            overflow: hidden;
-        }
+        /* Ajustes en pantallas pequeñas */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
 
-        .ceintz-carrusel .carousel-item img {
-            max-width: 80%;
-            max-height: 400px;
-            width: auto;
-            height: auto;
-            object-fit: cover;
-            border-radius: 10px;
-            margin: 0 auto;
+            .mandala-img {
+                width: 100%;
+                height: auto;
+                max-width: 300px;  /* Ajusta la imagen a un tamaño más pequeño */
+            }
+
+            .texto-cuadro {
+                margin: 0;
+                padding: 1rem;
+                width: 100%;
+            }
         }
 
         /* Footer */
         footer {
-            background-image: url('./img/footerLM.png');
+            background-image: url('./img/footerLM.jpg');
             background-size: cover;
             background-position: center;
             color: var(--bg-color);
@@ -215,46 +233,66 @@
         }
 
         footer p, footer a {
-            color: #ffffff;
+            color: #ffffff; /* Mantener el texto visible sobre la imagen del footer */
         }
 
-        /* Responsive */
+        #dark-mode-toggle {
+            background-color: transparent;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        body.dark-mode {
+            --primary-color: #ff0000;
+            --secondary-color: #840707;
+            --text-color: #fff;
+            --bg-color: #333;
+        }
+
+        /* Responsividad */
         @media (max-width: 768px) {
-            .ceintz-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .ceintz-texto-cuadro {
-                width: 100%;
-            }
-
-            .ceintz-menu {
+            .menu {
                 flex-direction: column;
                 display: none;
             }
 
-            .ceintz-nav__toggle {
+            .nav__toggle {
                 display: block;
                 font-size: 2rem;
                 cursor: pointer;
             }
 
-            .ceintz-menu.show {
+            .menu.show {
                 display: flex;
             }
 
-            .ceintz-submenu {
+            .submenu {
                 position: static;
                 width: 100%;
             }
 
-            .ceintz-submenu a {
+            .submenu a {
                 padding-left: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-section {
+                width: 100%;
+                text-align: left;
+            }
+
+            footer p {
+                text-align: left;
             }
         }
     </style>
-    </head>
+</head>
 <body>
 
     <header>
@@ -264,7 +302,7 @@
             <img src="./img/Logo-TecNM.png" alt="Logo TecNM" style="width: 280px;">
             <img src="./img/ITSZ1.png" alt="Logo ITSZ" style="width: 90px;">
         </div>
-
+       
     </header>
 
     <nav>
@@ -296,44 +334,21 @@
             <li><a href="./FORMULARIO_CEINTZ.html"><i class="ri-mail-line"></i> CONTACTANOS</a></li>
         </ul>
     </nav>
-    <main>
-        <h1 class="ceintz-h1"><b>OBJETIVO GENERAL</b></h1>
-        <div class="container">
-            <div class="carrusel-container">
-                <div id="ceintzCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="./img/coloquio/4.png"  class="d-block w-100 mandala-img" alt="Imagen 1 del CEINTZ">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./Fondos_videos/dji_fly_20240521_120326_9_1716314620818_photo_optimized.png" class="d-block w-100 mandala-img" alt="Imagen 2 del CEINTZ">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./img/coloquio/6.png" class="d-block w-100 mandala-img" alt="Imagen 3 del CEINTZ">
-                        </div>
-                    </div>
-                    <!-- Controles del carrusel -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#ceintzCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#ceintzCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
 
-            <div class="ceintz-texto-cuadro">
-                <h2>OBJETIVO</h2>
-                <p style="text-align: justify;">Vincular el capital intelectual de la carrera de Ingeniería en Administración 
+    <main>
+        <h1><b>OBJETIVO</b></h1>
+        <div class="container">
+            <img src="./img/coloquio/4.png" class="mandala-img" alt="Mandala">
+            <div class="texto-cuadro">
+         
+            <p style="text-align: justify;">Vincular el capital intelectual de la carrera de Ingeniería en Administración 
                     con el sector emprendedor-empresarial de la región, logrando con ello desarrollar e impulsar proyectos de inversión rural,
                      fortalecer la cultura empresarial, fomentar la innovación en productos, procesos y servicios obteniendo como resultados 
-                     negocios sostenibles de impacto regional.</p>
+                     negocios sostenibles de impacto regional</p>
             </div>
         </div>
     </main>
-
+    
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -363,7 +378,6 @@
             <p>© 2024 Gobierno de México</p>
         </div>
     </footer>
-    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
