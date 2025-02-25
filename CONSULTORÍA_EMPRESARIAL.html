@@ -387,8 +387,9 @@
                             <p style="text-align: justify;"> ¿Es importante adquirir los servicios del consultor? ¡Por supuesto! ya que es capaz de emitir el diagnóstico y solución de los problemas que limitan el funcionamiento de la empresa.</p>
                             <img src="./FOTOS IA_2025/XRM.PNG" alt="Ejemplo 2" class="img-fluid">
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="docs" role="tabpanel" aria-labelledby="docs-tab">
+                    </div>                  
+                    <!-- Contenido de la pestaña de Servicios -->
+<div class="tab-pane fade" id="docs" role="tabpanel" aria-labelledby="docs-tab">
     <h3 class="ceintz-h1">SERVICIOS QUE OFRECE:</h3>
     <style>
         .services-wrapper {
@@ -400,41 +401,36 @@
             min-height: 100vh;
             margin: 0;
         }
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-            gap: 20px; /* Espacio entre los elementos */
-            background-color: #ffffff;
+        .carousel-inner {
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 1200px; /* Ancho máximo del contenedor */
-            margin: 0 auto; /* Centrar el contenedor */
+        }
+        .carousel-item {
+            text-align: center;
         }
         .service-item {
             display: flex;
-            flex-direction: column; /* Organizar ícono y descripción en columna */
-            align-items: center; /* Centrar horizontalmente */
-            gap: 15px; /* Espacio entre ícono y descripción */
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
             text-align: center;
         }
         .service-icon {
-            width: 160px; /* Doble de grande (80px * 2) */
+            width: 160px;
             height: 160px;
             border-radius: 50%;
             background-color: #e0e0e0;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-shrink: 0; /* Evita que el ícono se encoja */
-            border: 2px solid #800020; /* Contorno delgado y color vino */
-            overflow: hidden; /* Asegura que la imagen no se salga del círculo */
+            flex-shrink: 0;
+            border: 2px solid #800020;
+            overflow: hidden;
         }
         .service-icon img {
-            width: 100%; /* Ajustar el tamaño de la imagen dentro del ícono */
+            width: 100%;
             height: 100%;
-            object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin deformarse */
-            border-radius: 50%; /* Hace que la imagen sea redonda */
+            object-fit: cover;
+            border-radius: 50%;
         }
         .service-description {
             background-color: #f9f9f9;
@@ -443,85 +439,120 @@
             border: 1px solid #ddd;
             font-size: 16px;
             color: #333;
-            width: 100%; /* Ajustar el ancho de la descripción */
+            width: 100%;
         }
         .service-description h4 {
-            margin: 0 0 10px 0; /* Espacio debajo del título */
+            margin: 0 0 10px 0;
             font-size: 18px;
-            color: #800020; /* Color vino para el título */
+            color: #800020;
         }
         .service-description p {
-            margin: 0; /* Eliminar margen predeterminado */
-            text-align: justify; /* Texto justificado */
+            margin: 0;
+            text-align: justify;
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1);
         }
     </style>
     <div class="services-wrapper">
-        <div class="services-container">
-            <!-- Servicio 1 -->
-            <div class="service-item">
-                <div class="service-icon">
-                    <img src="./FOTOS IA_2025/LMI.png" alt="Asesoría">
+        <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Servicio 1 -->
+                <div class="carousel-item active">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <img src="./FOTOS IA_2025/LMI.png" alt="Asesoría">
+                        </div>
+                        <div class="service-description">
+                            <h4>Asesoría</h4>
+                            <p>Brindamos orientación especializada para mejorar la toma de decisiones en tu negocio, optimizando procesos y maximizando resultados.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-description">
-                    <h4>Asesoría</h4>
-                    <p>Brindamos orientación especializada para mejorar la toma de decisiones en tu negocio, optimizando procesos y maximizando resultados.</p>
+                <!-- Servicio 2 -->
+                <div class="carousel-item">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <img src="./FOTOS IA_2025/DGB.png" alt="Ventas">
+                        </div>
+                        <div class="service-description">
+                            <h4>Ventas</h4>
+                            <p>Optimizamos tus estrategias de ventas para aumentar tus ingresos y fidelizar clientes, utilizando técnicas innovadoras y efectivas.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Servicio 3 -->
+                <div class="carousel-item">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <img src="./FOTOS IA_2025/ZZZ(1).png" alt="Capacitación">
+                        </div>
+                        <div class="service-description">
+                            <h4>Capacitación</h4>
+                            <p>Ofrecemos programas de formación para mejorar las habilidades de tu equipo, asegurando un alto rendimiento y competitividad en el mercado.</p>
+                            <a href="./catalogo_cursos.html" class="btn btn-primary">Ver Catálogo de Cursos</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Servicio 4 -->
+                <div class="carousel-item">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <img src="./FOTOS IA_2025/LEHG.png" alt="Comunicación">
+                        </div>
+                        <div class="service-description">
+                            <h4>Comunicación</h4>
+                            <p>Mejoramos la comunicación interna y externa de tu empresa para un flujo eficiente de información, promoviendo la colaboración y el entendimiento.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Servicio 5 -->
+                <div class="carousel-item">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <img src="./FOTOS IA_2025/MALC.png" alt="Marketing">
+                        </div>
+                        <div class="service-description">
+                            <h4>Marketing</h4>
+                            <p>Desarrollamos estrategias de marketing para posicionar tu marca y atraer más clientes, utilizando herramientas digitales y tradicionales.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Servicio 6 -->
+                <div class="carousel-item">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <img src="./FOTOS IA_2025/VRT.png" alt="Legal">
+                        </div>
+                        <div class="service-description">
+                            <h4>Legal</h4>
+                            <p>Asesoría legal especializada para proteger tu negocio y cumplir con las normativas, garantizando la seguridad jurídica de tus operaciones.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Servicio 2 -->
-            <div class="service-item">
-                <div class="service-icon">
-                    <img src="./FOTOS IA_2025/DGB.png" alt="Ventas">
-                </div>
-                <div class="service-description">
-                    <h4>Ventas</h4>
-                    <p>Optimizamos tus estrategias de ventas para aumentar tus ingresos y fidelizar clientes, utilizando técnicas innovadoras y efectivas.</p>
-                </div>
-            </div>
-            <!-- Servicio 3 -->
-            <div class="service-item">
-                <div class="service-icon">
-                    <img src="./FOTOS IA_2025/ZZZ(1).png" alt="Capacitación">
-                </div>
-                <div class="service-description">
-                    <h4>Capacitación</h4>
-                    <p>Ofrecemos programas de formación para mejorar las habilidades de tu equipo, asegurando un alto rendimiento y competitividad en el mercado.</p>
-                </div>
-            </div>
-            <!-- Servicio 4 -->
-            <div class="service-item">
-                <div class="service-icon">
-                    <img src="./FOTOS IA_2025/LEHG.png" alt="Comunicación">
-                </div>
-                <div class="service-description">
-                    <h4>Comunicación</h4>
-                    <p>Mejoramos la comunicación interna y externa de tu empresa para un flujo eficiente de información, promoviendo la colaboración y el entendimiento.</p>
-                </div>
-            </div>
-            <!-- Servicio 5 -->
-            <div class="service-item">
-                <div class="service-icon">
-                    <img src="./FOTOS IA_2025/MALC.png" alt="Marketing">
-                </div>
-                <div class="service-description">
-                    <h4>Marketing</h4>
-                    <p>Desarrollamos estrategias de marketing para posicionar tu marca y atraer más clientes, utilizando herramientas digitales y tradicionales.</p>
-                </div>
-            </div>
-            <!-- Servicio 6 -->
-            <div class="service-item">
-                <div class="service-icon">
-                    <img src="./FOTOS IA_2025/VRT.png" alt="Legal">
-                </div>
-                <div class="service-description">
-                    <h4>Legal</h4>
-                    <p>Asesoría legal especializada para proteger tu negocio y cumplir con las normativas, garantizando la seguridad jurídica de tus operaciones.</p>
-                </div>
-            </div>
+            <!-- Controles del carrusel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
         </div>
     </div>
-</div>
-                    
-                              
+</div>    
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                         <h3 class="mt-3">PROCESO CONSULTOR:</h3>
                         <style>
