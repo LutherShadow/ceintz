@@ -560,81 +560,100 @@
     </div>
 </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                        <h3 class="mt-3">PROCESO CONSULTOR:</h3>
-                        <style>
-                            .process-container {
-                                display: flex;
-                                justify-content: space-around;
-                                flex-wrap: wrap;
-                                gap: 20px;
-                                padding: 20px;
-                            }
-                    
-                            .process-step {
-                                background: linear-gradient(135deg, #007BFF, #0056b3);
-                                color: white;
-                                padding: 20px;
-                                border-radius: 10px;
-                                width: 250px;
-                                text-align: center;
-                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                                transition: transform 0.3s ease, box-shadow 0.3s ease;
-                            }
-                    
-                            .process-step:hover {
-                                transform: translateY(-10px);
-                                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-                            }
-                    
-                            .process-step h4 {
-                                margin-bottom: 10px;
-                                font-size: 18px;
-                            }
-                    
-                            .process-step ul {
-                                list-style: none;
-                                padding: 0;
-                                margin: 0;
-                            }
-                    
-                            .process-step ul li {
-                                margin: 10px 0;
-                                font-size: 14px;
-                            }
-                        </style>
-                        <div class="process-container">
-                            <div class="process-step">
-                                <h4>1. Prediagnóstico</h4>
-                                <ul>
-                                    <li>Agendar cita</li>
-                                    <li>Entrevista</li>
-                                    <li>Identificación de datos</li>
-                                    <li>Propuesta</li>
-                                </ul>
-                            </div>
-                            <div class="process-step">
-                                <h4>2. Diagnóstico</h4>
-                                <ul>
-                                    <li>Datos de diagnóstico</li>
-                                    <li>Estrategias viables</li>
-                                    <li>Evaluación de propuesta</li>
-                                    <li>Firma de contrato</li>
-                                </ul>
-                            </div>
-                            <div class="process-step">
-                                <h4>3. Desarrollo consultor</h4>
-                                <ul>
-                                    <li>Aplicación de estrategias</li>
-                                    <li>Evaluación de resultados</li>
-                                    <li>Cierre consultor</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
+    <h3 class="mt-3 text-white">PROCESO CONSULTOR:</h3> <!-- Título en blanco -->
+    <style>
+        .process-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .process-step {
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .process-step h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .process-step ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .process-step ul li {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        /* Estilos para la flecha */
+        .process-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem; /* Tamaño de la flecha */
+            color: white; /* Color blanco */
+            margin: 20px 0; /* Espaciado vertical */
+        }
+    </style>
+    <div class="process-container">
+        <!-- Paso 1 -->
+        <div class="process-step">
+            <h4>1. Prediagnóstico</h4>
+            <ul>
+                <li>Agendar cita</li>
+                <li>Entrevista</li>
+                <li>Identificación de datos</li>
+                <li>Propuesta</li>
+            </ul>
         </div>
+        <!-- Flecha después del Paso 1 -->
+        <div class="process-arrow">
+            <i class="ri-arrow-right-s-line"></i> <!-- Flecha de Remix Icon -->
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="process-step">
+            <h4>2. Diagnóstico</h4>
+            <ul>
+                <li>Datos de diagnóstico</li>
+                <li>Estrategias viables</li>
+                <li>Evaluación de propuesta</li>
+                <li>Firma de contrato</li>
+            </ul>
+        </div>
+        <!-- Flecha después del Paso 2 -->
+        <div class="process-arrow">
+            <i class="ri-arrow-right-s-line"></i> <!-- Flecha de Remix Icon -->
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="process-step">
+            <h4>3. Desarrollo consultor</h4>
+            <ul>
+                <li>Aplicación de estrategias</li>
+                <li>Evaluación de resultados</li>
+                <li>Cierre consultor</li>
+            </ul>
+        </div>
+    </div>
+</div>
     </main>
 
     <footer>
