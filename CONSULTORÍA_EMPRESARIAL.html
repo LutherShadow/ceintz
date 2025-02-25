@@ -560,12 +560,12 @@
     </div>
 </div>
                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-    <h3 class="mt-3 text-white">PROCESO CONSULTOR:</h3> <!-- Título en blanco -->
+    <!-- Título en blanco -->
+    <h3 class="mt-3" style="color: white;">PROCESO CONSULTOR:</h3>
     <style>
         .process-container {
             display: flex;
             justify-content: space-around;
-            align-items: center; /* Centrar verticalmente */
             flex-wrap: wrap;
             gap: 20px;
             padding: 20px;
@@ -603,30 +603,18 @@
             font-size: 14px;
         }
 
-        /* Estilos para la flecha */
-        .process-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem; /* Tamaño de la flecha */
-            color: white; /* Color blanco */
-            margin: 0 10px; /* Espaciado horizontal */
-        }
-
-        /* Ajustes para pantallas pequeñas */
-        @media (max-width: 768px) {
-            .process-container {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .process-arrow {
-                transform: rotate(90deg); /* Flecha hacia abajo en móviles */
-                margin: 10px 0; /* Espaciado vertical */
-            }
+        /* Estilos para las imágenes */
+        .process-image {
+            width: 2.2in; /* Ancho de 2.2 pulgadas */
+            height: 2.5in; /* Alto de 2.5 pulgadas */
+            margin-top: 20px; /* Espacio entre el proceso y la imagen */
+            border-radius: 10px; /* Bordes redondeados */
+            object-fit: cover; /* Ajustar la imagen sin deformarla */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
         }
     </style>
     <div class="process-container">
-        <!-- Paso 1 -->
+        <!-- Proceso 1: Prediagnóstico -->
         <div class="process-step">
             <h4>1. Prediagnóstico</h4>
             <ul>
@@ -636,14 +624,35 @@
                 <li>Propuesta</li>
             </ul>
         </div>
-        <!-- Flecha después del Paso 1 -->
-        <div class="process-arrow">
-            <i class="ri-arrow-right-s-line"></i> <!-- Flecha de Remix Icon -->
-        </div>
+        <!-- Imagen después del proceso 1 -->
+        <img src="./FOTOS IA_2025/LMI.png" alt="Prediagnóstico" class="process-image">
 
-        <!-- Paso 2 -->
+        <!-- Proceso 2: Diagnóstico -->
         <div class="process-step">
             <h4>2. Diagnóstico</h4>
+            <ul>
+                <li>Datos de diagnóstico</li>
+                <li>Estrategias viables</li>
+                <li>Evaluación de propuesta</li>
+                <li>Firma de contrato</li>
+            </ul>
+        </div>
+        <!-- Imagen después del proceso 2 -->
+        <img src="./FOTOS IA_2025/DGB.png" alt="Diagnóstico" class="process-image">
+
+        <!-- Proceso 3: Desarrollo consultor -->
+        <div class="process-step">
+            <h4>3. Desarrollo consultor</h4>
+            <ul>
+                <li>Aplicación de estrategias</li>
+                <li>Evaluación de resultados</li>
+                <li>Cierre consultor</li>
+            </ul>
+        </div>
+        <!-- Imagen después del proceso 3 -->
+        <img src="./FOTOS IA_2025/ZZZ(1).png" alt="Desarrollo consultor" class="process-image">
+    </div>
+</div>
            
     </main>
 
