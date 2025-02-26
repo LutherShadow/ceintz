@@ -26,10 +26,12 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             font-family: Arial, sans-serif;
+            color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
         /* Header */
-        .ceintz-header {
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -38,30 +40,30 @@
             flex-wrap: wrap;
         }
 
-        .ceintz-logo-container {
+        .logo-container {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .ceintz-logo-container img {
+        .logo-container img {
             max-height: 100px;
             margin-right: 1rem;
         }
 
         @media (max-width: 768px) {
-            .ceintz-logo-container img:not(:first-child) {
+            .logo-container img:not(:first-child) {
                 display: none;
             }
         }
 
         /* Navbar */
-        .ceintz-nav {
+        nav {
             width: 100%;
             background-color: var(--primary-color);
         }
 
-        .ceintz-menu {
+        .menu {
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -70,11 +72,11 @@
             flex-wrap: wrap;
         }
 
-        .ceintz-menu > li {
+        .menu > li {
             position: relative;
         }
 
-        .ceintz-menu > li > a {
+        .menu > li > a {
             color: var(--bg-color);
             padding: 1rem;
             text-decoration: none;
@@ -84,11 +86,11 @@
             font-size: 0.9rem;
         }
 
-        .ceintz-menu > li > a:hover {
+        .menu > li > a:hover {
             background-color: var(--hover-bg-color);
         }
 
-        .ceintz-submenu {
+        .submenu {
             display: none;
             position: absolute;
             background-color: var(--primary-color);
@@ -100,7 +102,7 @@
             z-index: 1000;
         }
 
-        .ceintz-submenu a {
+        .submenu a {
             color: var(--bg-color);
             padding: 0.75rem 1rem;
             text-decoration: none;
@@ -108,33 +110,33 @@
             font-size: 0.85rem;
         }
 
-        .ceintz-submenu a:hover {
+        .submenu a:hover {
             background-color: var(--hover-bg-color);
         }
 
-        .ceintz-menu li:hover > .ceintz-submenu {
+        .menu li:hover > .submenu {
             display: block;
         }
 
-        .ceintz-nav__toggle {
+        .nav__toggle {
             display: none;
         }
 
         /* Main content */
-        .ceintz-main {
+        main {
             max-width: 1200px;
             margin: 2rem auto;
             padding: 2rem;
         }
 
-        .ceintz-container {
+        .container {
             display: flex;
             align-items: center;
             gap: 2rem;
             justify-content: center;
         }
 
-        .ceintz-texto-cuadro {
+        .texto-cuadro {
             width: 600px;
             padding: 1.5rem;
             border: 1px solid var(--primary-color);
@@ -143,12 +145,12 @@
             border-radius: 10px;
         }
 
-        .ceintz-h1 {
-            color: white; /* Color blanco */
+        h1 {
+            color: var(--primary-color);
             font-size: 2.5em;
             text-align: center;
             margin-bottom: 2em;
-            font-weight: bold; /* Letras gruesas */
+            font-weight: bold;
         }
 
         /* Footer */
@@ -200,38 +202,46 @@
             color: #ffffff;
         }
 
+        /* Modo oscuro */
+        body.dark-mode {
+            --primary-color: #ff0000;
+            --secondary-color: #840707;
+            --text-color: #fff;
+            --bg-color: #333;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .ceintz-container {
+            .container {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .ceintz-texto-cuadro {
+            .texto-cuadro {
                 width: 100%;
             }
 
-            .ceintz-menu {
+            .menu {
                 flex-direction: column;
                 display: none;
             }
 
-            .ceintz-nav__toggle {
+            .nav__toggle {
                 display: block;
                 font-size: 2rem;
                 cursor: pointer;
             }
 
-            .ceintz-menu.show {
+            .menu.show {
                 display: flex;
             }
 
-            .ceintz-submenu {
+            .submenu {
                 position: static;
                 width: 100%;
             }
 
-            .ceintz-submenu a {
+            .submenu a {
                 padding-left: 2rem;
             }
         }
@@ -246,7 +256,9 @@
             <img src="./img/Logo-TecNM.png" alt="Logo TecNM" style="width: 280px;">
             <img src="./img/ITSZ1.png" alt="Logo ITSZ" style="width: 90px;">
         </div>
-        
+        <button id="dark-mode-toggle">
+            <i class="ri-moon-line"></i>
+        </button>
     </header>
 
     <nav>
@@ -348,11 +360,12 @@
             navMenu.classList.toggle('show');
         });
 
-        document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        darkModeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            const icon = document.querySelector('#dark-mode-toggle i');
-            icon.classList.toggle('fa-sun');
-            icon.classList.toggle('fa-moon');
+            const icon = darkModeToggle.querySelector('i');
+            icon.classList.toggle('ri-moon-line');
+            icon.classList.toggle('ri-sun-line');
         });
     </script>
 
