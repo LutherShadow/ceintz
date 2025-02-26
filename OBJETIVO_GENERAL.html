@@ -9,44 +9,45 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <style>
         /* Variables globales en :root */
-          :root {
-        --primary-color: #063883;
-        --secondary-color: #ff0000;
-        --text-color: #333;
-        --bg-color: #fff;
-        --footer-bg-color: rgb(7, 61, 36);
-        --hover-bg-color: rgba(28, 7, 185, 0.8);
-        --transition-speed: 0.3s;
-    }
+        :root {
+            --primary-color: #063883;
+            --secondary-color: #ff0000;
+            --text-color: #333;
+            --bg-color: #fff;
+            --footer-bg-color: rgb(7, 61, 36);
+            --hover-bg-color: rgba(28, 7, 185, 0.8);
+            --transition-speed: 0.3s;
+            --text-box-bg-color: #f0f0f0; /* Gris claro para el cuadro de texto */
+        }
 
-    body {
-        position: relative; /* Necesario para el pseudo-elemento de fondo oscuro */
-        background-image: url('./Fondos_videos/dji_fly_20240606_133206_73_1717702454489_pano_optimized-min.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        font-family: Arial, sans-serif;
-        color: var(--text-color);
-    }
+        body {
+            position: relative; /* Necesario para el pseudo-elemento de fondo oscuro */
+            background-image: url('./Fondos_videos/dji_fly_20240606_133206_73_1717702454489_pano_optimized-min.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: var(--text-color);
+        }
 
-    /* Pseudo-elemento para oscurecer el fondo */
-    body::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente negro */
-        z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
-    }
+        /* Pseudo-elemento para oscurecer el fondo */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente negro */
+            z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
+        }
 
-    /* Asegúrate de que el contenido esté por encima del pseudo-elemento */
-    main, header, footer {
-        position: relative;
-        z-index: 1;
-    }
+        /* Asegúrate de que el contenido esté por encima del pseudo-elemento */
+        main, header, footer {
+            position: relative;
+            z-index: 1;
+        }
 
         /* Header */
         .ceintz-header {
@@ -155,8 +156,8 @@
         }
 
         .mandala-img {
-            width: 100%; /* Reducir el ancho al 50% del contenedor */
-            max-width: 800px; /* Limitar el ancho máximo */
+            width: 50%; /* Reducir el ancho al 50% del contenedor */
+            max-width: 400px; /* Limitar el ancho máximo */
             height: auto; /* Mantener la proporción de la imagen */
             border-radius: 20px; /* Bordes redondeados */
         }
@@ -166,17 +167,17 @@
             padding: 1.5rem;
             border: 1px solid var(--primary-color);
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-            background-color: var(--ceintz-texto-cuadro-bg); /* Usa la variable */
+            background-color: var(--text-box-bg-color); /* Usa la variable */
             border-radius: 10px;
             text-align: justify; /* Justifica el texto */
         }
 
         .ceintz-h1 {
-            color: var(--ceintz-h1-color); /* Usa la variable */
+            color: #ffffff; /* Cambiar el color del título a blanco */
             font-size: 2.5em;
             text-align: center;
             margin-bottom: 2em;
-            font-weight: var(--ceintz-h1-font-weight); /* Usa la variable */
+            font-weight: bold;
         }
 
         /* Footer */
