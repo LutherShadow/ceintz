@@ -1,397 +1,330 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CENTRO DE EMPRENDIMIENTO, INNOVACIÓN Y NEGOCIOS</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
-        <link rel="stylesheet" href="ceintz.css"> <!-- Nuevo archivo CSS -->
-        <style>
-            /* Estilos generales */
-            :root {
-                 --primary-color: #063883;
-                --secondary-color: #ff0000;
-                --text-color: #333;
-                --bg-color: #fff;
-                --footer-bg-color: rgb(7, 61, 36);
-                --hover-bg-color: rgba(28, 7, 185, 0.8);
-                --transition-speed: 0.3s;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingeniería en Administración</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #063883;
+            --secondary-color: #ff0000;
+            --text-color: #333;
+            --bg-color: #fff;
+            --footer-bg-color: rgb(7, 61, 36);
+            --hover-bg-color: rgba(28, 7, 185, 0.8);
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            position: relative; /* Necesario para el pseudo-elemento de fondo oscuro */
+            background-image: url('./Fondos_videos/dji_fly_20240606_133206_73_1717702454489_pano_optimized-min.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: var(--text-color);
+        }
+
+        /* Pseudo-elemento para oscurecer el fondo */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente negro */
+            z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
+        }
+
+        /* Asegúrate de que el contenido esté por encima del pseudo-elemento */
+        main, header, footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ceintz-h1 {
+            color: #ffffff; /* Título en blanco */
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 2em;
+            font-weight: bold;
+        }
+
+        /* Header */
+        .ceintz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+            background-color: var(--bg-color);
+            flex-wrap: wrap;
+        }
+
+        .ceintz-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ceintz-logo-container img {
+            max-height: 100px;
+            margin-right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .ceintz-logo-container img:not(:first-child) {
+                display: none;
             }
-    
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: var(--bg-color);
-                color: var(--text-color);
-                transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        /* Navbar */
+        .ceintz-nav {
+            width: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .ceintz-menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .ceintz-menu > li {
+            position: relative;
+        }
+
+        .ceintz-menu > li > a {
+            color: var(--bg-color);
+            padding: 1rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .ceintz-menu > li > a:hover {
+            background-color: var(--hover-bg-color);
+        }
+
+        .ceintz-submenu {
+            display: none;
+            position: absolute;
+            background-color: var(--primary-color);
+            list-style-type: none;
+            padding: 0;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            z-index: 1000;
+        }
+
+        .ceintz-submenu a {
+            color: var(--bg-color);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.85rem;
+        }
+
+        .ceintz-submenu a:hover {
+            background-color: var(--hover-bg-color);
+        }
+
+        .ceintz-menu li:hover > .ceintz-submenu {
+            display: block;
+        }
+
+        .ceintz-nav__toggle {
+            display: none;
+        }
+
+        /* Main content */
+        .ceintz-main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columnas por fila */
+            gap: 1.5rem; /* Espacio entre los elementos */
+            max-width: 1200px; /* Limitar el ancho máximo */
+            margin: 0 auto; /* Centrar el contenedor */
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .mandala-img {
+            width: 100%; /* Ajusta el ancho */
+            height: auto;
+            display: block;
+            border-radius: 10px; /* Bordes redondeados */
+        }
+
+        .texto-cuadro {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Ocupa el 100% del ancho de la imagen */
+            height: 100%; /* Ocupa el 100% del alto de la imagen */
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semi-transparente */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra verticalmente */
+            align-items: center; /* Centra horizontalmente */
+            text-align: center;
+            padding: 1rem; /* Espaciado interno */
+            box-sizing: border-box; /* Incluye el padding en el tamaño total */
+            border-radius: 10px;
+            font-size: 0.9rem; /* Ajusta el tamaño de la fuente */
+        }
+
+        .texto-cuadro p {
+            margin: 0.5rem; /* Ajusta el margen del párrafo */
+            overflow: hidden; /* Evita que el texto se desborde */
+            text-overflow: ellipsis; /* Agrega puntos suspensivos si el texto es demasiado largo */
+        }
+
+        /* Footer */
+        footer {
+            background-image: url('./img/footerLM.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--bg-color);
+            padding: 2em;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--bg-color);
+            text-decoration: none;
+            transition: color var(--transition-speed), transform var(--transition-speed);
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social-icons a {
+            font-size: 1.5rem;
+            color: var(--bg-color);
+        }
+
+        footer p, footer a {
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
             }
-    
-            /* Header */
-            header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 1em;
-                background-color: var(--bg-color);
-                flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
             }
-    
-            .logo-container {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
+
+            .ceintz-menu {
+                flex-direction: column;
+                display: none;
             }
-    
-            .logo-container img {
-                max-height: 100px;
-                margin-right: 1rem;
-            }
-    
-            @media (max-width: 768px) {
-                .logo-container img:not(:first-child) {
-                    display: none;
-                }
-            }
-    
-            /* Icono de Admin */
-            .mi-icono {
+
+            .ceintz-nav__toggle {
+                display: block;
                 font-size: 2rem;
-                color: var(--primary-color);
-                padding: 10px;
-            }
-    
-            /* Navbar */
-            nav {
-                width: 100%;
-                background-color: var(--primary-color);
-            }
-    
-            .menu {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: space-around;
-                flex-wrap: wrap;
-            }
-    
-            .menu > li {
-                position: relative;
-            }
-    
-            .menu > li > a {
-                color: var(--bg-color);
-                padding: 1rem;
-                text-decoration: none;
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                font-size: 0.9rem;
-            }
-    
-            .menu > li > a:hover {
-                background-color: var(--hover-bg-color);
-            }
-    
-            .menu > li:hover > a i.ri-arrow-down-s-line {
-                transform: rotate(180deg);
-                transition: transform var(--transition-speed);
-            }
-    
-            .submenu {
-                display: none;
-                position: absolute;
-                background-color: var(--primary-color);
-                list-style-type: none;
-                padding: 0;
-                top: 100%;
-                left: 0;
-                min-width: 200px;
-                z-index: 1000;
-            }
-    
-            .submenu a {
-                color: var(--bg-color);
-                padding: 0.75rem 1rem;
-                text-decoration: none;
-                display: block;
-                font-size: 0.85rem;
-            }
-    
-            .submenu a:hover {
-                background-color: var(--hover-bg-color);
-            }
-    
-            .menu li:hover > .submenu {
-                display: block;
-            }
-    
-            .nav__toggle {
-                display: none;
-            }
-    
-            /* Main content */
-            main {
-                max-width: 1200px;
-                margin: 2rem auto;
-                padding: 2rem;
-            }
-    
-            .container {
-                display: flex;
-                align-items: center;
-                gap: 2rem;
-                justify-content: center;
-            }
-    
-            .mandala-img {
-                border-radius: 0%;
-                box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.3);
-                width: 650px;
-                height: auto;
-                animation: fadeIn 3s ease-in-out;
-            }
-    
-            .texto-cuadro {
-                width: 600px;
-                padding: 1.5rem;
-                border: 1px solid var(--primary-color);
-                box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-                animation: slideIn 1s ease-in-out;
-            }
-    
-            h1 {
-                color: var(--primary-color);
-                font-size: 2.5em;
-                text-align: center;
-                margin-bottom: 2em;
-            }
-    
-            /* Animaciones */
-            @keyframes fadeIn {
-                0% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-    
-            @keyframes slideIn {
-                0% {
-                    transform: translateX(-100%);
-                }
-                100% {
-                    transform: translateX(0);
-                }
-            }
-    
-            @media (max-width: 768px) {
-                .container {
-                    flex-direction: column;
-                    text-align: center;
-                }
-    
-                .mandala-img {
-                    width: 100%;
-                    height: auto;
-                    max-width: 300px;
-                }
-    
-                .texto-cuadro {
-                    margin: 0;
-                    padding: 1rem;
-                    width: 100%;
-                }
-            }
-    
-            /* Footer */
-            footer {
-                background-image: url('./img/footerLM.jpg');
-                background-size: cover;
-                background-position: center;
-                color: var(--bg-color);
-                padding: 2em;
-                margin-top: 2rem;
-            }
-    
-            footer a {
-                color: var(--bg-color);
-                text-decoration: none;
-                transition: color var(--transition-speed), transform var(--transition-speed);
-            }
-    
-            footer a:hover {
-                text-decoration: underline;
-                transform: scale(1.1);
-            }
-    
-            .footer-content {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: flex-start;
-                align-items: flex-start;
-                gap: 2rem;
-            }
-    
-            .footer-section {
-                flex: 1;
-                min-width: 200px;
-            }
-    
-            .footer-social-icons {
-                display: flex;
-                gap: 1rem;
-                margin-top: 1rem;
-            }
-    
-            .footer-social-icons a {
-                font-size: 1.5rem;
-                color: var(--bg-color);
-            }
-    
-            footer p, footer a {
-                color: #ffffff;
-            }
-    
-            #dark-mode-toggle {
-                background-color: transparent;
-                border: none;
-                padding: 10px;
                 cursor: pointer;
-                transition: background-color 0.3s;
             }
-    
-            body.dark-mode {
-                --primary-color: #ff0000;
-                --secondary-color: #840707;
-                --text-color: #333;
-                --bg-color: #333;
+
+            .ceintz-menu.show {
+                display: flex;
             }
-    
-            @media (max-width: 768px) {
-                .menu {
-                    flex-direction: column;
-                    display: none;
-                }
-    
-                .nav__toggle {
-                    display: block;
-                    font-size: 2rem;
-                    cursor: pointer;
-                }
-    
-                .menu.show {
-                    display: flex;
-                }
-    
-                .submenu {
-                    position: static;
-                    width: 100%;
-                }
-    
-                .submenu a {
-                    padding-left: 2rem;
-                }
-    
-                .footer-content {
-                    flex-direction: column;
-                    align-items: flex-start;
-                }
-    
-                .footer-section {
-                    width: 100%;
-                    text-align: left;
-                }
-    
-                footer p {
-                    text-align: left;
-                }
-            }
-    
-            /* Estilos específicos para el carrusel */
-            .carrusel-ceintz .carousel {
+
+            .ceintz-submenu {
+                position: static;
                 width: 100%;
             }
-    
-            .carrusel-ceintz .carousel img {
-                width: 100%;
-                height: auto;
-                border-radius: 10px;
+
+            .ceintz-submenu a {
+                padding-left: 2rem;
             }
-    
-            /* Estilos específicos para la animación de círculos */
-            .animacion-circulos .circle-wrapper {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                overflow: hidden;
-                position: relative;
-                height: 150px;
-                margin: 20px 0;
+
+            .texto-cuadro p {
+                font-size: 0.8rem; /* Ajusta el tamaño de la fuente en móviles */
             }
-    
-            .animacion-circulos .circle-container {
-                display: flex;
-                gap: 20px;
-                position: absolute;
-                white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
             }
-    
-            .animacion-circulos .circle {
-                width: 80px;
-                height: 80px;
-                border: 2px solid #007BFF;
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: transparent;
-                background-size: cover;
-                background-position: center;
-                animation: moveAndRotate 8s linear infinite;
-            }
-    
-            @keyframes moveAndRotate {
-                0% {
-                    transform: translateX(-100%) rotate(0deg);
-                }
-                100% {
-                    transform: translateX(100%) rotate(0deg);
-                }
-            }
-        </style> <!-- Nuevo archivo CSS -->
-    </head>
+        }
+    </style>
+</head>
 <body>
 
-    <header>
-        <div class="logo-container">
+    <header class="ceintz-header">
+        <div class="ceintz-logo-container">
             <img src="./img/gob_mx.png" alt="Logo Gobierno" style="width: 250px;">
             <img src="./img/educacion_logo.png" alt="Logo Educación" style="width: 250px;">
             <img src="./img/Logo-TecNM.png" alt="Logo TecNM" style="width: 280px;">
             <img src="./img/ITSZ1.png" alt="Logo ITSZ" style="width: 90px;">
         </div>
-        
     </header>
-    <nav>
-        <div class="nav__toggle" id="nav-toggle">
+
+    <nav class="ceintz-nav">
+        <div class="ceintz-nav__toggle" id="nav-toggle">
             <i class="ri-menu-line"></i>
         </div>
-        <ul class="menu" id="nav-menu">
+        <ul class="ceintz-menu" id="nav-menu">
             <li><a href="./INICIO.html"><i class="ri-home-line"></i> INICIO</a></li>
             <li>
                 <a href="#"><i class="ri-file-list-line"></i> OBJETIVOS <i class="ri-arrow-down-s-line"></i></a>
-                <ul class="submenu">
+                <ul class="ceintz-submenu">
                     <li><a href="./OBJETIVO_GENERAL.html">GENERAL</a></li>
                     <li><a href="./OBJETIVOS_ESPECI.html">ESPECIFICOS</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="ri-group-line"></i> MISIÓN <i class="ri-arrow-down-s-line"></i></a>
-                <ul class="submenu">
+                <ul class="ceintz-submenu">
                     <li><a href="./MISIÓN.html">MISIÓN</a></li>
                     <li><a href="./VISIÓN.html">VISIÓN</a></li>
                     <li><a href="./VALORES.html">VALORES</a></li>
@@ -406,8 +339,10 @@
         </ul>
     </nav>
 
-    <main>
-        
+    <main class="ceintz-main">
+        <h1 class="ceintz-h1"><b>CATALOGO DE CURSOS</b></h1>
+        <div class="grid-container">
+        </div>
     </main>
 
     <footer>
@@ -439,5 +374,14 @@
             <p>© 2024 Gobierno de México</p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
